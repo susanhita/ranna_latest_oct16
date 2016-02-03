@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView"
+    >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_ingredient"></LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose ingredients for this recipe"
+        android:padding="5dp"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:hint="Add more ingredients"
+        android:padding="10dp" />
+
+
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Add more/Done"
+        android:onClick="add_more_done"
+        android:padding="5dp"
+        />
+
+
+
+    <RelativeLayout android:id="@+id/frameLayout2"
+        android:layout_width="367dp"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_vertical"
+            android:text="You added the following ingredients"
+            android:id="@+id/textView3"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to the list"
+            android:id="@+id/button2"
+            android:onClick="add_ingredients_to_db"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="10dp"
+             />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:id="@+id/button3"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="10dp"
+            android:onClick="reset_Ingredients"
+            android:layout_toRightOf="@+id/button2"
+            android:layout_gravity="center|bottom" />
+
+
+
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All ingredients checked!"
+        android:id="@+id/insert_to_db"
+        android:layout_below="@+id/frameLayout2"
+        android:layout_marginTop="10dp"
+        android:onClick="insert_Ingredients"
+        android:layout_gravity="center|bottom" />
+    </LinearLayout></ScrollView>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MealPlanner</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_create_recipe">CreateRecipe</string>
+    <string name="title_activity_check_ingredients">CheckIngredients</string>
+    <string-array name="view_recipe">
+        <item>begun bhaja</item>
+        <item>shukto</item>
+        <item>payasam</item>
+    </string-array>
+
+</resources>
