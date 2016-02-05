@@ -125,9 +125,12 @@ public class CreateRecipe extends AppCompatActivity {
         SQLiteOpenHelper starbuzzdb1 = new RecipeDatabase(this);
         try {
             SQLiteDatabase db = starbuzzdb1.getWritableDatabase();
-            RecipeDatabase.insertDrink(db, recipe_name, description, uriSavedImage1);
+
             TextView textView=(TextView)findViewById(R.id.blah);
-            String insert="\"INSERT INTO RECIPE (NAME,DESCRIPTION,IMAGE_RESOURCE_ID" + columns + ") VALUES('" + recipe_name+ "','"+ description + "','" +uriSavedImage1+"'"+ values+");";
+           // String insert="\"INSERT INTO RECIPE (NAME,DESCRIPTION,IMAGE_RESOURCE_ID,CUMIN" + columns + ") VALUES('" + recipe_name+ "','"+ description + "','" +uriSavedImage1+ ",'YES"+"'"+ values+");";
+            //RecipeDatabase.insertDrink(db, recipe_name, description, uriSavedImage1);
+            //String insert="INSERT INTO RECIPE(NAME,DESCRIPTION,IMAGE_RESOURCE_ID,CUMIN) VALUES('FISH CURRY','YUM YUM','FILE_LOC','YES')";
+            String insert="INSERT INTO RECIPE(NAME,DESCRIPTION,IMAGE_RESOURCE_ID"+columns+ ")VALUES('" +  recipe_name   +"','"+   description    +"','"+    uriSavedImage1 +"'"+values+");";
             textView.setText(insert);
             db.execSQL(insert);
             db.close();
