@@ -117,7 +117,7 @@ public class CreateRecipe extends AppCompatActivity {
         }
         EditText editText1=(EditText)findViewById(R.id.createRecipe);
         String description= editText1.getText().toString();
-        if (description.length()<=40){
+        if (description.length()<=10){
             Toast toast = Toast.makeText(this, "Recipe description should be of more than 40 letters", Toast.LENGTH_SHORT);
             toast.show();
             return;
@@ -127,9 +127,6 @@ public class CreateRecipe extends AppCompatActivity {
             SQLiteDatabase db = starbuzzdb1.getWritableDatabase();
 
             TextView textView=(TextView)findViewById(R.id.blah);
-           // String insert="\"INSERT INTO RECIPE (NAME,DESCRIPTION,IMAGE_RESOURCE_ID,CUMIN" + columns + ") VALUES('" + recipe_name+ "','"+ description + "','" +uriSavedImage1+ ",'YES"+"'"+ values+");";
-            //RecipeDatabase.insertDrink(db, recipe_name, description, uriSavedImage1);
-            //String insert="INSERT INTO RECIPE(NAME,DESCRIPTION,IMAGE_RESOURCE_ID,CUMIN) VALUES('FISH CURRY','YUM YUM','FILE_LOC','YES')";
             String insert="INSERT INTO RECIPE(NAME,DESCRIPTION,IMAGE_RESOURCE_ID"+columns+ ")VALUES('" +  recipe_name   +"','"+   description    +"','"+    uriSavedImage1 +"'"+values+");";
             textView.setText(insert);
             db.execSQL(insert);

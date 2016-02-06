@@ -29,7 +29,7 @@ public class AddIngredients extends AppCompatActivity {
         //This prints the new ingredients(works!!)
         //clean_all();
         EditText add_ingredient = (EditText) findViewById(R.id.editText);
-        String string1 = add_ingredient.getText().toString();
+        String string1 = add_ingredient.getText().toString().replaceAll(" ","_");
         if (add_ingredient.getText().length() == 0) {
             Toast toast = Toast.makeText(this, "Please enter valid text", Toast.LENGTH_SHORT);
             toast.show();
