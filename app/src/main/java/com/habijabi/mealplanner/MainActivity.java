@@ -48,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void grocery(View view){
+        Intent intent=new Intent(this,Grocery.class);
+        startActivity(intent);
+    }
 
 
 
