@@ -15,5 +15,7 @@
         android:text="Possible Recipes"
         android:id="@+id/possible"
         android:onClick="suggest"
+        android:background="@drawable/buttonshape"
+
         android:layout_gravity="bottom" />
 </LinearLayout>

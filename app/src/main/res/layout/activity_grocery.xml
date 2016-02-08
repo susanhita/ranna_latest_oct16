@@ -32,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Remind me!"
+        android:background="@drawable/buttonshape"
         android:onClick="Clicktocalender"
         android:id="@+id/remind" />
 </LinearLayout>

@@ -21,14 +21,6 @@ public class Grocery extends AppCompatActivity {
         String strTitle= String.valueOf(EstrTitle.getText());
         EditText Edesciption=(EditText)findViewById(R.id.description1);
         String strDescription=Edesciption.getText().toString();
-        EditText estartTime=(EditText)findViewById(R.id.start_time);
-        String startDateMillis=estartTime.getText().toString();
-        EditText EdndDateMills=(EditText)findViewById(R.id.end_time);
-        String endDateMillis=estartTime.getText().toString();
-
-       // Intent intent=new Intent(Intent.ACTION_INSERT);
-        //intent.putExtra(CalendarContract.Events.TITLE, strTitle);
-       // intent.putExtra(CalendarContract.Events.DESCRIPTION,strDescription);
 
         Intent intent = new Intent(Intent.ACTION_EDIT);
         intent.setType("vnd.android.cursor.item/event");

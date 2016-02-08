@@ -54,15 +54,24 @@ public class SelIngredients extends AppCompatActivity {
         }
         cursor.close();
         db.close();
+        if (j>4){
+            Button ins=(Button)findViewById(R.id.insert_to_db);
+            ins.setVisibility(View.VISIBLE);
+            TextView choose=(TextView)findViewById(R.id.choose_text);
+            choose.setVisibility(View.VISIBLE);
 
+        }
         LinearLayout layout = (LinearLayout) findViewById(R.id.layout_ingredient);
 
         for(int k=4;k<j;k++) {
                 CheckBox chkTeamName = new CheckBox(this);
                 chkTeamName.setId(k);
-                chkTeamName.setText(ingtext[k].replaceAll("_"," "));
+                chkTeamName.setText(ingtext[k].replaceAll("_", " "));
+                chkTeamName.setTextSize(18);
                 layout.addView(chkTeamName);
-            }
+        }
+
+
    }
 
 
