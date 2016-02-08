@@ -5,82 +5,86 @@
     android:layout_height="wrap_content"
     android:id="@+id/scrollView"
     android:orientation="vertical">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_create_recipe"
-    tools:context="com.habijabi.mealplanner.CreateRecipe"
-    android:gravity="top">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_create_recipe"
+        tools:context="com.habijabi.mealplanner.CreateRecipe"
+        android:gravity="top">
 
 
-    <EditText
-        android:layout_marginTop="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/recipe_name"
-        android:hint="Recipe Name"/>
-
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Type or paste your recipe here"
-        android:id="@+id/textView"
-         />
-
-    <Button
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="Paste"
-        android:layout_gravity="right"
-        android:id="@+id/paste"
-        android:onClick="paste" />
+        <EditText
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/recipe_name"
+            android:hint="Recipe Name"/>
 
 
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Type or paste your recipe here"
+            android:id="@+id/textView"
+            />
+
+        <Button
+            android:background="@drawable/buttonshape"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="Paste"
+            android:layout_gravity="right"
+            android:id="@+id/paste"
+            android:onClick="paste" />
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="109dp"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/createRecipe"
-        android:lines="9"
-        android:hint="Start typing or Long press to paste"
-        android:gravity="top" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload photo"
-        android:id="@+id/recipepic"
-        android:onClick="recipe_pic"/>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save the recipe"
-        android:id="@+id/button"
-        android:onClick="save"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/blah"
-        />
-</LinearLayout></ScrollView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="109dp"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/createRecipe"
+            android:lines="9"
+            android:hint="Start typing or Long press to paste"
+            android:gravity="top" />
+
+        <Button
+            android:background="@drawable/buttonshape"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Upload photo"
+            android:id="@+id/recipepic"
+            android:onClick="recipe_pic"/>
+
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:background="@drawable/buttonshape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save the recipe"
+            android:id="@+id/button"
+            android:onClick="save"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/blah"
+            />
+    </LinearLayout></ScrollView>
