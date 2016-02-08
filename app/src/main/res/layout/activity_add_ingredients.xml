@@ -19,13 +19,18 @@
     <Button
         android:id="@+id/done"
         android:layout_width="90dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:background="@drawable/buttonshape"
         android:text="Done"
         android:onClick="add_more_done"
         android:padding="5dp"
         />
-
+    <View
+        android:layout_width="fill_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="5dp"
+        android:background="#479C47"/>
 
 
     <RelativeLayout android:id="@+id/frameLayout2"
@@ -44,7 +49,7 @@
 
         <Button
             android:layout_width="90dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Add to the list"
             android:id="@+id/button2"
             android:background="@drawable/buttonshape"
@@ -56,11 +61,12 @@
         <Button
             android:background="@drawable/buttonshape"
             android:layout_width="90dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Reset"
             android:id="@+id/button3"
             android:layout_below="@+id/textView3"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
             android:onClick="reset_Ingredients"
             android:layout_toRightOf="@+id/button2"
             android:layout_gravity="center|bottom" />

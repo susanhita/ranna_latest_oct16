@@ -31,22 +31,26 @@
 
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:text="Add new ingredients"
         android:id="@+id/add_ingredient"
         android:onClick="addIngredient"
-
-        android:background="@drawable/buttonshape"
+        android:layout_marginBottom="10dp"
+        android:background="@color/buttoncolor"
         android:layout_gravity="center" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:background="#479C47"/>
 
     <Button
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="All ingredients checked!"
         android:id="@+id/insert_to_db"
         android:layout_below="@+id/frameLayout2"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:onClick="insert_Ingredients"
         android:visibility="invisible"
         android:background="@drawable/buttonshape"

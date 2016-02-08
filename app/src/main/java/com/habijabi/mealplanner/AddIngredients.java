@@ -47,7 +47,7 @@ public class AddIngredients extends AppCompatActivity {
 
 
         for (int l = 0; l < i; l++) {
-            final_string = final_string + (String.format("\n %s and l is %d", ingredient[l], i));
+            final_string = final_string + (String.format("\n %s ", ingredient[l]));
         }
         textView3.setText(final_string);
     }
