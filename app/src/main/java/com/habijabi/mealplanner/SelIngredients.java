@@ -55,6 +55,8 @@ public class SelIngredients extends AppCompatActivity {
         cursor.close();
         db.close();
         if (j>4){
+          //  Button add_ingredient=(Button)findViewById(R.id.add_ingredient);
+
             Button ins=(Button)findViewById(R.id.insert_to_db);
             ins.setVisibility(View.VISIBLE);
             TextView choose=(TextView)findViewById(R.id.choose_text);

@@ -25,9 +25,11 @@ public class Grocery extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_EDIT);
         intent.setType("vnd.android.cursor.item/event");
         intent.putExtra(CalendarContract.Events.TITLE, strTitle);
-        intent.putExtra(CalendarContract.Events.DESCRIPTION,strDescription);
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, strDescription);
         intent.putExtra(CalendarContract.Events.ALL_DAY, false);// periodicity
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
     }
 
 
