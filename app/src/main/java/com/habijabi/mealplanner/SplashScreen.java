@@ -14,7 +14,7 @@ public class SplashScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-
+        getActionBar().hide();
         Thread timerThread = new Thread(){
             public void run(){
                 try{
