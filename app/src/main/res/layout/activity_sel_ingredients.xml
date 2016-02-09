@@ -2,13 +2,16 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/scrollView"
-    >
+    tools:context=".SelIngredients"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/sel_layout"
-    android:orientation="vertical"
+
+android:orientation="vertical"
     android:weightSum="1">
     <TextView
         android:id="@+id/choose_text"

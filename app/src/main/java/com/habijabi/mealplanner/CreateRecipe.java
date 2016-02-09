@@ -1,5 +1,7 @@
 package com.habijabi.mealplanner;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +17,6 @@ import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.content.ClipboardManager;
 import android.view.View;
@@ -32,7 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.sql.SQLDataException;
 
-public class CreateRecipe extends AppCompatActivity {
+public class CreateRecipe extends Activity {
     Uri uriSavedImage1;
     String photo_name,EXTRA = "message",columns,values;
     Uri uriSavedImage=Uri.parse("file:///sdcard/ArtRage/blah.png");
@@ -40,11 +41,12 @@ public class CreateRecipe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_recipe);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
         Intent intent =getIntent();
         columns = intent.getStringExtra("Tot_col");
         values = intent.getStringExtra("Tot_val");
+        ActionBar actionBar=getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
 

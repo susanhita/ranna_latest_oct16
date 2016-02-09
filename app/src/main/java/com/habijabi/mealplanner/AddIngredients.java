@@ -1,11 +1,12 @@
 package com.habijabi.mealplanner;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddIngredients extends AppCompatActivity {
+public class AddIngredients extends Activity {
     public static String[] ingredient = new String[100];
     public static int i;
 
@@ -23,6 +24,8 @@ public class AddIngredients extends AppCompatActivity {
         i=0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredients);
+        ActionBar actionBar=getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void add_more_done(View view) {

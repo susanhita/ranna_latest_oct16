@@ -10,14 +10,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+
+
+
         <activity
             android:name=".SplashScreen"
+            android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/app_name" >
-        <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+
+
 
         <activity
             android:name=".MainActivity"
@@ -25,33 +32,89 @@
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="com.coderefer.androidsplashscreenexample.MAINACTIVITY" />
-
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".CreateRecipe"
             android:label="@string/title_activity_create_recipe"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT"
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".ViewRecipe" >
+
+
+
+        <activity android:name=".ViewRecipe"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".RecipeActivity" >
+
+
+
+        <activity android:name=".RecipeActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".RandomReceipe" >
+
+
+
+        <activity android:name=".RandomReceipe"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
+
+
+
         <activity
             android:name=".SelIngredients"
-            android:configChanges="orientation|screenSize" >
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".AddIngredients" >
+
+
+
+        <activity android:name=".AddIngredients"
+            android:parentActivityName=".SelIngredients">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SelIngredients" />
         </activity>
-        <activity android:name=".SuggestRecipe" >
+
+
+
+        <activity android:name=".SuggestRecipe"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".PrintSuggestedRecipe" >
+
+
+
+        <activity android:name=".PrintSuggestedRecipe"
+            android:parentActivityName=".SuggestRecipe">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SuggestRecipe" />
         </activity>
-        <activity android:name=".Grocery" >
+
+
+
+
+        <activity android:name=".Grocery"
+            android:parentActivityName=".MainActivity"
+            android:label="Grocery List">
         </activity>
     </application>
 

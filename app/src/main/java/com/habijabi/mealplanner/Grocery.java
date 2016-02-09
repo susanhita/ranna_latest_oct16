@@ -1,19 +1,21 @@
 package com.habijabi.mealplanner;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.provider.CalendarContract;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class Grocery extends AppCompatActivity {
+public class Grocery extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grocery);
-
+        ActionBar actionBar=getActionBar();
+      //  actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void Clicktocalender(View view){

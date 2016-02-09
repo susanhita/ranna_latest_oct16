@@ -1,5 +1,6 @@
 package com.habijabi.mealplanner;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,13 +25,15 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-public class SelIngredients extends AppCompatActivity {
+public class SelIngredients extends Activity {
     public static String[] ingredient = new String[100];
     public static int i,j;
     public static String Tot_col,Tot_val;
     public static String[] ingtext=new String[100];
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar=getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         Tot_col="";
         Tot_val="";
         setContentView(R.layout.activity_sel_ingredients);

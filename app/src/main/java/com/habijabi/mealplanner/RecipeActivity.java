@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.io.File;
 
-public class RecipeActivity extends AppCompatActivity {
+public class RecipeActivity extends Activity {
     public static final String EXTRA_RECIPENO = "drinkNo";
 
     @Override

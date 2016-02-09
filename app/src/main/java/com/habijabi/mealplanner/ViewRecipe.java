@@ -1,6 +1,6 @@
 package com.habijabi.mealplanner;
 
-import android.app.Activity;
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +28,8 @@ public class ViewRecipe extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar=getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         ListView listDrinks = getListView();
        // new ViewRecipeDb().execute();
 
