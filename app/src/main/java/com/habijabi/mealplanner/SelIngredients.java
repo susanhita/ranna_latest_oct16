@@ -19,10 +19,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 
 public class SelIngredients extends Activity {
@@ -86,32 +86,28 @@ public class SelIngredients extends Activity {
 
 
    public void insert_Ingredients(View view) {
+       int flag=0;
         for (int k = 4; k <  j; k++) {
             CheckBox chkTeamName = (CheckBox) findViewById(k);
             if (chkTeamName.isChecked()) {
+                flag=1;
                 Tot_col = Tot_col.concat(","+ingtext[k]);
                 Tot_val= Tot_val.concat(",'YES'");
             }
         }
-
-        Intent intent = new Intent(this, CreateRecipe.class);
-        intent.putExtra("Tot_col",Tot_col);
-        intent.putExtra("Tot_val", Tot_val);
-
-        startActivity(intent);
+        if (flag==1) {
+            Intent intent = new Intent(this, CreateRecipe.class);
+            intent.putExtra("Tot_col", Tot_col);
+            intent.putExtra("Tot_val", Tot_val);
+            startActivity(intent);
+        }
+       else{
+            Toast toast=Toast.makeText(this,"Select ingredient first.",Toast.LENGTH_SHORT);
+            toast.show();
+        }
    }
 
 
 
 
 }
-
-
-
-
-
-
-
-
-
-

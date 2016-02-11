@@ -53,12 +53,13 @@ public class SuggestRecipe extends Activity {
         int count=0;
         String new_string="";
         String sum_string="";
+        int flag=0;
 
         String Tot_suggest="SELECT _id,NAME FROM RECIPE WHERE ";
         for (int k = 4; k <  j; k++) {
             CheckBox chkTeamName = (CheckBox) findViewById(k);
             if (chkTeamName.isChecked()) {
-
+               flag=1;
                Tot_suggest = Tot_suggest.concat(and + ingtext[k]+ "='YES'");
                and=" OR ";
             }
@@ -70,10 +71,16 @@ public class SuggestRecipe extends Activity {
         }
         Tot_suggest=Tot_suggest.concat(sum_string);
         Tot_suggest = Tot_suggest.concat(";");
-        Log.v("sql query",Tot_suggest);
-        Intent intent = new Intent(this, PrintSuggestedRecipe.class);
-        intent.putExtra("Tot_suggest", Tot_suggest);
-        startActivity(intent);
+        Log.v("sql query", Tot_suggest);
+        if (flag==1) {
+            Intent intent = new Intent(this, PrintSuggestedRecipe.class);
+            intent.putExtra("Tot_suggest", Tot_suggest);
+            startActivity(intent);
+        }
+        else{
+            Toast toast=Toast.makeText(this,"Select ingredient first.",Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
 }
