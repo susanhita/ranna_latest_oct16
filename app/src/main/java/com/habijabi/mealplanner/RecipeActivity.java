@@ -27,9 +27,6 @@ public class RecipeActivity extends Activity {
         //get the drink from inntent
         Intent intent = getIntent();
         int drinkNo = (Integer) getIntent().getExtras().get(EXTRA_RECIPENO);
-        Toast toast = Toast.makeText(RecipeActivity.this,"recipe"+drinkNo, Toast.LENGTH_SHORT);
-        toast.show();
-
         new UpdateRecipeClass().execute(drinkNo);
 
     }

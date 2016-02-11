@@ -71,12 +71,6 @@ public class SuggestRecipe extends Activity {
         Tot_suggest=Tot_suggest.concat(sum_string);
         Tot_suggest = Tot_suggest.concat(";");
         Log.v("sql query",Tot_suggest);
-        Toast toast = Toast.makeText(SuggestRecipe.this, Tot_suggest, Toast.LENGTH_LONG);
-        toast.show();
-        TextView textView=new TextView(this);
-        textView.setText(Tot_suggest);
-        LinearLayout layout = (LinearLayout) findViewById(R.id.suggest_recipe);
-        layout.addView(textView);
         Intent intent = new Intent(this, PrintSuggestedRecipe.class);
         intent.putExtra("Tot_suggest", Tot_suggest);
         startActivity(intent);

@@ -64,7 +64,7 @@ public class PrintSuggestedRecipe extends ListActivity {
     public void onListItemClick(ListView listView, View itemView, int position, long id) {
         Intent intent = new Intent(this, RecipeActivity.class);
         intent.putExtra(RecipeActivity.EXTRA_RECIPENO, (int) id);
-       // startActivity(intent);
+        startActivity(intent);
 
     }
 }

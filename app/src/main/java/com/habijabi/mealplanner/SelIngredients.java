@@ -93,8 +93,7 @@ public class SelIngredients extends Activity {
                 Tot_val= Tot_val.concat(",'YES'");
             }
         }
-        Toast toast = Toast.makeText(SelIngredients.this, Tot_col, Toast.LENGTH_LONG);
-        toast.show();
+
         Intent intent = new Intent(this, CreateRecipe.class);
         intent.putExtra("Tot_col",Tot_col);
         intent.putExtra("Tot_val", Tot_val);
@@ -106,6 +105,7 @@ public class SelIngredients extends Activity {
 
 
 }
+
 
 
 

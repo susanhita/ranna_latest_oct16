@@ -10,10 +10,10 @@
 
 
     <TextView
-        android:layout_width="326dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Select the ingredients available"
+        android:text="Select the ingredients available with you."
         android:id="@+id/textView8"
         android:layout_marginBottom="20dp" />
 

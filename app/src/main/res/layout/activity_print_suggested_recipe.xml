@@ -13,6 +13,8 @@
     <TextView android:id="@android:id/empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No data"/>
+        android:textSize="15dp"
+        android:layout_gravity="center"
+        android:text="There are no recipes available with the selected ingredients."/>
 
 </LinearLayout>

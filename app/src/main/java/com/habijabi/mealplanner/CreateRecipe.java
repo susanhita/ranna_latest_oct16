@@ -96,9 +96,15 @@ public class CreateRecipe extends Activity {
 
     public void paste(View view) {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        if (clipboard.getPrimaryClip()!=null){
         ClipData.Item pastetext=clipboard.getPrimaryClip().getItemAt(0);
-        EditText editText=(EditText)findViewById(R.id.createRecipe);
-        editText.append(pastetext.coerceToText(this));
+            EditText editText = (EditText) findViewById(R.id.createRecipe);
+            editText.append(pastetext.coerceToText(this));
+        }
+        else {
+            Toast toast = Toast.makeText(this,"There is nothing to paste!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
     }
 
@@ -119,7 +125,7 @@ public class CreateRecipe extends Activity {
         EditText editText1=(EditText)findViewById(R.id.createRecipe);
         String description= editText1.getText().toString();
         if (description.length()<=10){
-            Toast toast = Toast.makeText(this, "Recipe description should be of more than 40 letters", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Recipe description should be of more than 10 letters", Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
@@ -127,9 +133,7 @@ public class CreateRecipe extends Activity {
         try {
             SQLiteDatabase db = starbuzzdb1.getWritableDatabase();
 
-            TextView textView=(TextView)findViewById(R.id.blah);
             String insert="INSERT INTO RECIPE(NAME,DESCRIPTION,IMAGE_RESOURCE_ID"+columns+ ")VALUES('" +  recipe_name   +"','"+   description    +"','"+    uriSavedImage1 +"'"+values+");";
-            textView.setText(insert);
             db.execSQL(insert);
             db.close();
 
