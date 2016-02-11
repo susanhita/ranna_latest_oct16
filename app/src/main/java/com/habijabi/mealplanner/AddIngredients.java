@@ -25,7 +25,6 @@ public class AddIngredients extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredients);
         ActionBar actionBar=getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void add_more_done(View view) {

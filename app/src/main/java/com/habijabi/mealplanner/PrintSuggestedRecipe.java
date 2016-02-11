@@ -1,6 +1,5 @@
 package com.habijabi.mealplanner;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,6 +7,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,12 +29,10 @@ public class PrintSuggestedRecipe extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActionBar actionBar=getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
         Intent intent=getIntent();
         String recipes_matched = intent.getStringExtra("Tot_suggest");
-        ListView listDrinks = getListView();
-
+       // ListView listDrinks = getListView();
+        setContentView(R.layout.activity_print_suggested_recipe);
 
         try {
             SQLiteOpenHelper recipedb = new RecipeDatabase(PrintSuggestedRecipe.this);
@@ -46,7 +44,7 @@ public class PrintSuggestedRecipe extends ListActivity {
             cursor.moveToFirst();
             Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
             listAdapter = new SimpleCursorAdapter(PrintSuggestedRecipe.this, android.R.layout.simple_list_item_1, cursor, new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
-            listDrinks.setAdapter(listAdapter);
+            setListAdapter(listAdapter);
         }
         catch (SQLiteException e) {
             Toast toast = Toast.makeText(this, "database cant be accessed", Toast.LENGTH_SHORT);

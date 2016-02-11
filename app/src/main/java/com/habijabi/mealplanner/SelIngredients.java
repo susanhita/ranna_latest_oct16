@@ -33,7 +33,6 @@ public class SelIngredients extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActionBar actionBar=getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
         Tot_col="";
         Tot_val="";
         setContentView(R.layout.activity_sel_ingredients);

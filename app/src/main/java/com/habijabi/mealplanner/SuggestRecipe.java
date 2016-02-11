@@ -23,7 +23,6 @@ public class SuggestRecipe extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_recipe);
         ActionBar actionBar=getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
 //////////////////////////////////////////////
         j = 0;
         SQLiteOpenHelper recipedb = new RecipeDatabase(this);

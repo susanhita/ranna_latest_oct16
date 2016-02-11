@@ -29,9 +29,7 @@ public class ViewRecipe extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActionBar actionBar=getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
         ListView listDrinks = getListView();
-       // new ViewRecipeDb().execute();
 
 
       try {

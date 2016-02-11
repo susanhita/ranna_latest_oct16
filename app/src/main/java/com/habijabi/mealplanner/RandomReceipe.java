@@ -24,7 +24,6 @@ public class RandomReceipe extends Activity {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_random_receipe);
                 ActionBar actionBar=getActionBar();
-                actionBar.setDisplayHomeAsUpEnabled(true);
                 int id,max,min;
                 max=3;
                 min=1;

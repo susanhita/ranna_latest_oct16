@@ -46,7 +46,6 @@ public class CreateRecipe extends Activity {
         columns = intent.getStringExtra("Tot_col");
         values = intent.getStringExtra("Tot_val");
         ActionBar actionBar=getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
 
