@@ -108,7 +108,7 @@ public class CreateRecipe extends Activity {
         uriSavedImage1 = Uri.parse(uriSavedImage.toString());
         EditText editText = (EditText) findViewById(R.id.recipe_name);
         String recipe_name = editText.getText().toString();
-        if (recipe_name.length() == 0) {
+        if (recipe_name.length() <= 0) {
             Toast toast = Toast.makeText(this, "Please enter a valid recipe name", Toast.LENGTH_SHORT);
             toast.show();
             return;
