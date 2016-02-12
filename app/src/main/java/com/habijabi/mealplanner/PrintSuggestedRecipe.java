@@ -7,6 +7,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,8 +19,7 @@ import android.widget.Toast;
 import android.widget.ListView;
 import android.app.ListActivity;
 
-
-
+import java.util.ArrayList;
 
 
 public class PrintSuggestedRecipe extends ListActivity {
@@ -29,30 +29,35 @@ public class PrintSuggestedRecipe extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent=getIntent();
+        Intent intent = getIntent();
         String recipes_matched = intent.getStringExtra("Tot_suggest");
-       // ListView listDrinks = getListView();
+        // ListView listDrinks = getListView();
         setContentView(R.layout.activity_print_suggested_recipe);
-
-        try {
-            SQLiteOpenHelper recipedb = new RecipeDatabase(PrintSuggestedRecipe.this);
-            db = recipedb.getWritableDatabase();
-          //  recipes_matched="select  ";
-            cursor=db.rawQuery(recipes_matched, null);
-
-            //cursor = db.query("RECIPE", new String[]{"_id", "NAME"}, null, null, null, null, null);
-            cursor.moveToFirst();
-            Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
-            listAdapter = new SimpleCursorAdapter(PrintSuggestedRecipe.this, android.R.layout.simple_list_item_1, cursor, new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
-            setListAdapter(listAdapter);
-        }
-        catch (SQLiteException e) {
-            Toast toast = Toast.makeText(this, "database cant be accessed", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-
-
+        new MatchRecipeClass().execute(recipes_matched);
     }
+        private class MatchRecipeClass extends AsyncTask<String, Void, Boolean> {
+            protected void onPreExecute() {
+            }
+            protected Boolean doInBackground(String...recipes_matched) {
+                try {
+                    SQLiteOpenHelper recipedb = new RecipeDatabase(PrintSuggestedRecipe.this);
+                    db = recipedb.getWritableDatabase();
+                    cursor = db.rawQuery(recipes_matched[0], null);
+
+                    cursor.moveToFirst();
+                    Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
+                    listAdapter = new SimpleCursorAdapter(PrintSuggestedRecipe.this, android.R.layout.simple_list_item_1, cursor, new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
+                    setListAdapter(listAdapter);
+                    return true;
+                } catch (SQLiteException e) {
+                    return false;
+                }
+            }
+            protected void onPostExecute(Boolean success) {
+                Toast toast = Toast.makeText(PrintSuggestedRecipe.this, "database cant be accessed", Toast.LENGTH_SHORT);
+
+            }
+        }
 
     public void onDestroy() {
         super.onDestroy();
