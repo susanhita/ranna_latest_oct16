@@ -39,41 +39,54 @@ public class SelIngredients extends Activity {
         if (savedInstanceState != null) {
              i=savedInstanceState.getInt("i");
         }
-        displayCheckboxes();
+        new displayCheckboxes().execute();
     }
 
-    void displayCheckboxes(){
-        j=0;
-        SQLiteOpenHelper recipedb = new RecipeDatabase(this);
-        SQLiteDatabase db = recipedb.getWritableDatabase();
-        Cursor cursor=db.rawQuery("PRAGMA table_info(RECIPE)",null);
-        cursor.moveToFirst();
-        while (cursor.isAfterLast()==false) {
-            ingtext[j] = cursor.getString(1);
-            j++;
-            cursor.moveToNext();
+    private class displayCheckboxes extends AsyncTask<Integer, Void, Boolean> {
+        protected void onPreExecute() {
         }
-        cursor.close();
-        db.close();
-        if (j>4){
-          //  Button add_ingredient=(Button)findViewById(R.id.add_ingredient);
 
-            Button ins=(Button)findViewById(R.id.insert_to_db);
-            ins.setVisibility(View.VISIBLE);
-            TextView choose=(TextView)findViewById(R.id.choose_text);
-            choose.setVisibility(View.VISIBLE);
-
+        protected Boolean doInBackground(Integer... drinks) {
+            j = 0;
+            SQLiteOpenHelper recipedb = new RecipeDatabase(SelIngredients.this);
+            try{
+                SQLiteDatabase db = recipedb.getWritableDatabase();
+                Cursor cursor = db.rawQuery("PRAGMA table_info(RECIPE)", null);
+                cursor.moveToFirst();
+                while (cursor.isAfterLast() == false) {
+                    ingtext[j] = cursor.getString(1);
+                    j++;
+                    cursor.moveToNext();
+                }
+                cursor.close();
+                db.close();
+                return true;
+            }
+            catch (SQLiteException e) {
+                return false;
+            }
         }
-        LinearLayout layout = (LinearLayout) findViewById(R.id.layout_ingredient);
 
-        for(int k=4;k<j;k++) {
-                CheckBox chkTeamName = new CheckBox(this);
+        protected void onPostExecute(Boolean success) {
+            if (j > 4) {
+                //  Button add_ingredient=(Button)findViewById(R.id.add_ingredient);
+
+                Button ins = (Button) findViewById(R.id.insert_to_db);
+                ins.setVisibility(View.VISIBLE);
+                TextView choose = (TextView) findViewById(R.id.choose_text);
+                choose.setVisibility(View.VISIBLE);
+
+            }
+            LinearLayout layout = (LinearLayout) findViewById(R.id.layout_ingredient);
+
+            for (int k = 4; k < j; k++) {
+                CheckBox chkTeamName = new CheckBox(SelIngredients.this);
                 chkTeamName.setId(k);
                 chkTeamName.setText(ingtext[k].replaceAll("_", " "));
                 chkTeamName.setTextSize(18);
                 layout.addView(chkTeamName);
+            }
         }
-
 
    }
 

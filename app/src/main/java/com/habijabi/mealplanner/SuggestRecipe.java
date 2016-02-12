@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,31 +24,46 @@ public class SuggestRecipe extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_recipe);
-        ActionBar actionBar=getActionBar();
-//////////////////////////////////////////////
-        j = 0;
-        SQLiteOpenHelper recipedb = new RecipeDatabase(this);
-        SQLiteDatabase db = recipedb.getWritableDatabase();
-        Cursor cursor = db.rawQuery("PRAGMA table_info(RECIPE)", null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            ingtext[j] = cursor.getString(1);
-            j++;
-            cursor.moveToNext();
-        }
-        cursor.close();
-        db.close();
-
-        LinearLayout layout = (LinearLayout) findViewById(R.id.suggest_recipe);
-
-        for (int k = 4; k < j; k++) {
-            CheckBox chkTeamName = new CheckBox(this);
-            chkTeamName.setId(k);
-            chkTeamName.setText(ingtext[k].replaceAll("_", " "));
-            layout.addView(chkTeamName);
-        }
-//////////////////////////////////////////
+        ActionBar actionBar = getActionBar();
+        new displayCheckboxes1().execute();
     }
+
+    private class displayCheckboxes1 extends AsyncTask<Integer, Void, Boolean> {
+        protected void onPreExecute() {
+        }
+        protected Boolean doInBackground(Integer... drinks) {
+            j = 0;
+            SQLiteOpenHelper recipedb = new RecipeDatabase(SuggestRecipe.this);
+            try {
+                SQLiteDatabase db = recipedb.getWritableDatabase();
+                Cursor cursor = db.rawQuery("PRAGMA table_info(RECIPE)", null);
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+                    ingtext[j] = cursor.getString(1);
+                    j++;
+                    cursor.moveToNext();
+                }
+                cursor.close();
+                db.close();
+                return true;
+            }
+            catch (SQLiteException e){
+                return false;
+            }
+        }
+        protected void onPostExecute(Boolean success) {
+
+            LinearLayout layout = (LinearLayout) findViewById(R.id.suggest_recipe);
+
+            for (int k = 4; k < j; k++) {
+                CheckBox chkTeamName = new CheckBox(SuggestRecipe.this);
+                chkTeamName.setId(k);
+                chkTeamName.setText(ingtext[k].replaceAll("_", " "));
+                layout.addView(chkTeamName);
+            }
+        }
+    }
+
     public void suggest(View view){
         String and="";
         String mul="";
