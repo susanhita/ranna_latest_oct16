@@ -11,15 +11,20 @@ android:layout_width="match_parent" android:layout_height="match_parent">
     android:layout_gravity="center"
     android:id="@+id/name" />
 <ImageView
+    android:background="#000000"
+    android:padding="3dp"
     android:layout_width="190dp"
     android:layout_height="190dp"
     android:layout_gravity="center"
-    android:id="@+id/photo" />
+    android:id="@+id/photo"
+    android:paddingEnd="@dimen/abc_button_padding_horizontal_material" />
 
 
 
 <TextView
+    android:layout_marginTop="10dp"
     android:layout_gravity="center"
+    android:textAlignment="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/description" />

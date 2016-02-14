@@ -2,6 +2,7 @@ package com.habijabi.mealplanner;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +10,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,7 +36,10 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.SQLDataException;
 import java.util.ArrayList;
 
@@ -52,7 +60,7 @@ public class CreateRecipe extends Activity {
     }
 
 
-    public void recipe_pic(View view) {
+    public void recipe_pic(View view) throws IOException {
         EditText editText = (EditText) findViewById(R.id.recipe_name);
         String recipe_name = editText.getText().toString();
         if (recipe_name.length() == 0) {
@@ -61,8 +69,22 @@ public class CreateRecipe extends Activity {
             return;
         }
         photo_name = recipe_name.replaceAll("\\s+", "");
+        /* creating folder*/
+        File dir = new File("/sdcard/Mealplanner");
+        try{
+            if(dir.mkdir()) {
+                System.out.println("Directory created");
+            } else {
+                System.out.println("Directory is not created");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        /*folder created*/
 
-        uriSavedImage = Uri.parse("file:///sdcard/ArtRage/" + photo_name + ".png");
+
+
+        uriSavedImage = Uri.parse("file:///sdcard/Mealplanner/"+ photo_name + ".png");
         final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add Photo!");
@@ -87,6 +109,8 @@ public class CreateRecipe extends Activity {
             }
         });
         builder.show();
+
+
     }
 
 
@@ -104,7 +128,42 @@ public class CreateRecipe extends Activity {
     }
 
 
-    public void save(View view) {
+    public void save(View view) throws FileNotFoundException {
+        ////////////////
+       // new RotateImageClass().execute();
+////////
+        ExifInterface exif = null;
+        try {
+            exif = new ExifInterface("/sdcard/MealPlanner/" + photo_name + ".png");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int rotationAngle = 0;
+        if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("6")) {
+            rotationAngle = 90; //90
+        } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("8")) {
+            rotationAngle = 270; //270
+        } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("3")) {
+            rotationAngle = 180; //180
+        } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("0")) {
+            rotationAngle = 90; //90
+        }
+        Bitmap bmp = BitmapFactory.decodeFile("/sdcard/MealPlanner/" + photo_name + ".png");
+        Matrix matrix = new Matrix();
+        matrix.postRotate(rotationAngle);
+        bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
+        //learn content provider for more info
+        OutputStream os = null;
+        try {
+            os = getContentResolver().openOutputStream(uriSavedImage);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, os);
+
+
+
+        ////////////////////////////
         uriSavedImage1 = Uri.parse(uriSavedImage.toString());
         EditText editText = (EditText) findViewById(R.id.recipe_name);
         String recipe_name = editText.getText().toString();
@@ -128,11 +187,82 @@ public class CreateRecipe extends Activity {
         new SaveRecipeClass().execute(params);
     }
 
+    private class RotateImageClass extends AsyncTask<ArrayList<String>, Void, Boolean> {
+        protected void onPreExecute() {
+            ProgressDialog dialog= ProgressDialog.show(CreateRecipe.this, "Saving", "Saving this recipe in the database!");
+        }
+
+        protected Boolean doInBackground(ArrayList<String>... params) {
+
+            ExifInterface exif = null;
+            try {
+                exif = new ExifInterface("/sdcard/MealPlanner" + photo_name + ".png");
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+            int rotationAngle = 0;
+            if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("6")) {
+                rotationAngle = 90; //90
+            } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("8")) {
+                rotationAngle = 270; //270
+            } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("3")) {
+                rotationAngle = 180; //180
+            } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("0")) {
+                rotationAngle = 90; //90
+            }
+            Bitmap bmp = BitmapFactory.decodeFile("/sdcard/MealPlanner/" + photo_name + ".png");
+            Matrix matrix = new Matrix();
+            matrix.postRotate(rotationAngle);
+            bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
+            //learn content provider for more info
+            OutputStream os = null;
+            try {
+                os = getContentResolver().openOutputStream(uriSavedImage);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            }
+            bmp.compress(Bitmap.CompressFormat.PNG, 100, os);
+            return true;
+        }
+
+        protected void onPostExecute(Boolean success) {
+            if (!success) {
+                Toast toast = Toast.makeText(CreateRecipe.this, "Issues with Image file.", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private class SaveRecipeClass extends AsyncTask<ArrayList<String>, Void, Boolean> {
         protected void onPreExecute() {
         }
 
         protected Boolean doInBackground(ArrayList<String>...params) {
+
             SQLiteOpenHelper starbuzzdb1 = new RecipeDatabase(CreateRecipe.this);
             String recipe_name=params[0].get(0), description=params[0].get(1),uriSavedImage1=params[0].get(2),values=params[0].get(3);
 
