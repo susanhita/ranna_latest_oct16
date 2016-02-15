@@ -70,7 +70,7 @@ public class CreateRecipe extends Activity {
         }
         photo_name = recipe_name.replaceAll("\\s+", "");
         /* creating folder*/
-        File dir = new File("/sdcard/Mealplanner");
+        File dir = new File(Environment.getExternalStorageDirectory()+"/Mealplanner");
         try{
             if(dir.mkdir()) {
                 System.out.println("Directory created");
@@ -84,7 +84,7 @@ public class CreateRecipe extends Activity {
 
 
 
-        uriSavedImage = Uri.parse("file:///sdcard/Mealplanner/"+ photo_name + ".png");
+        uriSavedImage = Uri.parse("file://"+Environment.getExternalStorageDirectory()+"/"+"/Mealplanner/"+ photo_name + ".png");
         final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add Photo!");
@@ -130,13 +130,8 @@ public class CreateRecipe extends Activity {
 
     public void save(View view) throws FileNotFoundException {
         ////////////////
-       // new RotateImageClass().execute();
-////////
 
 
-
-
-        ////////////////////////////
         uriSavedImage1 = Uri.parse(uriSavedImage.toString());
         EditText editText = (EditText) findViewById(R.id.recipe_name);
         String recipe_name = editText.getText().toString();
@@ -157,6 +152,7 @@ public class CreateRecipe extends Activity {
         params.add(description);
         params.add(uriSavedImage1.toString());
         params.add(values);
+        new RotateImageClass().execute();
         new SaveRecipeClass().execute(params);
     }
 
@@ -169,8 +165,8 @@ public class CreateRecipe extends Activity {
 
             ExifInterface exif = null;
             try {
-               // exif = new ExifInterface("/sdcard/MealPlanner/" + photo_name + ".png");
-                exif = new ExifInterface("some");
+               exif = new ExifInterface(Environment.getExternalStorageDirectory()+"/MealPlanner/" + photo_name + ".png");
+                //exif = new ExifInterface("some");
             } catch (IOException e) {
                 e.printStackTrace();
                 return false;
@@ -185,7 +181,7 @@ public class CreateRecipe extends Activity {
             } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("0")) {
                 rotationAngle = 90; //90
             }
-            Bitmap bmp = BitmapFactory.decodeFile("/sdcard/MealPlanner/" + photo_name + ".png");
+            Bitmap bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory()+"/MealPlanner/" + photo_name + ".png");
             Matrix matrix = new Matrix();
             matrix.postRotate(rotationAngle);
             bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
