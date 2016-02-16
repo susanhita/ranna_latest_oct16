@@ -48,7 +48,7 @@ import java.sql.SQLDataException;
 import java.util.ArrayList;
 
 public class CreateRecipe extends Activity {
-    Uri uriSavedImage1;
+    Uri uriSavedImage1,galleryUri;
     String photo_name, EXTRA = "message", columns, values;
     Uri uriSavedImage = Uri.parse("file:///sdcard/ArtRage/blah.png");
     boolean camera_flag=false;
@@ -125,14 +125,48 @@ public class CreateRecipe extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && camera_flag==false) {
             if(data.getData() != null){
-                TextView textView = (TextView)findViewById(R.id.blah);
-                textView.setText("yup data");
-                uriSavedImage=data.getData();
+
+                //uriSavedImage=data.getData();
+
+                InputStream image_stream = null;
+                try {
+                    image_stream = getContentResolver().openInputStream(data.getData());
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                Bitmap bmp= BitmapFactory.decodeStream(image_stream);
+                int maxHeight=600;
+                int maxWidth=600;
+                if (maxHeight > 0 && maxWidth > 0) {
+                    int width = bmp.getWidth();
+                    int height = bmp.getHeight();
+                    float ratioBitmap = (float) width / (float) height;
+                    float ratioMax = (float) maxWidth / (float) maxHeight;
+
+                    int finalWidth = maxWidth;
+                    int finalHeight = maxHeight;
+                    if (ratioMax > 1) {
+                        finalWidth = (int) ((float) maxHeight * ratioBitmap);
+                    } else {
+                        finalHeight = (int) ((float) maxWidth / ratioBitmap);
+                    }
+
+                    bmp = Bitmap.createScaledBitmap(bmp, finalWidth, finalHeight, true);
+                }
+
+
+
+                OutputStream os = null;
+                try {
+                    os = getContentResolver().openOutputStream(uriSavedImage);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                bmp.compress(Bitmap.CompressFormat.JPEG, 100, os);
+
             }
-            else {
-                TextView textView = (TextView) findViewById(R.id.blah);
-                textView.setText("no data");
-            }
+
         }
 
     }
@@ -156,6 +190,7 @@ public class CreateRecipe extends Activity {
 
 
     public void save(View view) throws FileNotFoundException {
+        ////////////////
 
 
         uriSavedImage1 = Uri.parse(uriSavedImage.toString());
