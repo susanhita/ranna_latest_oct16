@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.CursorLoader;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -25,6 +26,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v7.widget.Toolbar;
 import android.content.ClipboardManager;
+import android.text.Layout;
 import android.view.View;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
@@ -34,7 +36,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -47,7 +51,7 @@ public class CreateRecipe extends Activity {
     Uri uriSavedImage1;
     String photo_name, EXTRA = "message", columns, values;
     Uri uriSavedImage = Uri.parse("file:///sdcard/ArtRage/blah.png");
-
+    boolean camera_flag=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +74,7 @@ public class CreateRecipe extends Activity {
         }
         photo_name = recipe_name.replaceAll("\\s+", "");
         /* creating folder*/
-        File dir = new File(Environment.getExternalStorageDirectory()+"/Mealplanner");
+        File dir = new File("file:///sdcard/MealPlanner/");
         try{
             if(dir.mkdir()) {
                 System.out.println("Directory created");
@@ -84,7 +88,7 @@ public class CreateRecipe extends Activity {
 
 
 
-        uriSavedImage = Uri.parse("file://"+Environment.getExternalStorageDirectory()+"/"+"/Mealplanner/"+ photo_name + ".png");
+        uriSavedImage = Uri.parse("file:///sdcard/MealPlanner/"+ photo_name + ".png");
         final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add Photo!");
@@ -92,16 +96,18 @@ public class CreateRecipe extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 if (items[item].equals("Take Photo")) {
+                    camera_flag=true;
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
                     startActivityForResult(intent, 1);
                     //    startActivity(intent);
                 } else if (items[item].equals("Choose from Library")) {
-                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT,
-                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                         //           android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
-                    startActivityForResult(intent, 1);
+                    startActivityForResult(intent,1);
                     // startActivity(intent);
                 } else if (items[item].equals("Cancel")) {
                     dialog.dismiss();
@@ -112,6 +118,27 @@ public class CreateRecipe extends Activity {
 
 
     }
+
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && camera_flag==false) {
+            if(data.getData() != null){
+                TextView textView = (TextView)findViewById(R.id.blah);
+                textView.setText("yup data");
+                uriSavedImage=data.getData();
+            }
+            else {
+                TextView textView = (TextView) findViewById(R.id.blah);
+                textView.setText("no data");
+            }
+        }
+
+    }
+
+
+
 
 
     public void paste(View view) {
@@ -129,7 +156,6 @@ public class CreateRecipe extends Activity {
 
 
     public void save(View view) throws FileNotFoundException {
-        ////////////////
 
 
         uriSavedImage1 = Uri.parse(uriSavedImage.toString());
@@ -151,8 +177,11 @@ public class CreateRecipe extends Activity {
         params.add(recipe_name);
         params.add(description);
         params.add(uriSavedImage1.toString());
+
         params.add(values);
-        new RotateImageClass().execute();
+        if (camera_flag==true) {
+          new RotateImageClass().execute();
+        }
         new SaveRecipeClass().execute(params);
     }
 
@@ -166,7 +195,6 @@ public class CreateRecipe extends Activity {
             ExifInterface exif = null;
             try {
                exif = new ExifInterface(Environment.getExternalStorageDirectory()+"/MealPlanner/" + photo_name + ".png");
-                //exif = new ExifInterface("some");
             } catch (IOException e) {
                 e.printStackTrace();
                 return false;
@@ -182,10 +210,30 @@ public class CreateRecipe extends Activity {
                 rotationAngle = 90; //90
             }
             Bitmap bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory()+"/MealPlanner/" + photo_name + ".png");
+
+          int maxHeight=600;
+            int maxWidth=600;
+            if (maxHeight > 0 && maxWidth > 0) {
+                int width = bmp.getWidth();
+                int height = bmp.getHeight();
+                float ratioBitmap = (float) width / (float) height;
+                float ratioMax = (float) maxWidth / (float) maxHeight;
+
+                int finalWidth = maxWidth;
+                int finalHeight = maxHeight;
+                if (ratioMax > 1) {
+                    finalWidth = (int) ((float) maxHeight * ratioBitmap);
+                } else {
+                    finalHeight = (int) ((float) maxWidth / ratioBitmap);
+                }
+
+                bmp = Bitmap.createScaledBitmap(bmp, finalWidth, finalHeight, true);
+            }
             Matrix matrix = new Matrix();
             matrix.postRotate(rotationAngle);
             bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
-            //learn content provider for more info
+
+
             OutputStream os = null;
             try {
                 os = getContentResolver().openOutputStream(uriSavedImage);
@@ -193,7 +241,7 @@ public class CreateRecipe extends Activity {
                 e.printStackTrace();
                 return false;
             }
-            bmp.compress(Bitmap.CompressFormat.PNG, 100, os);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 100, os);
             return true;
         }
 
