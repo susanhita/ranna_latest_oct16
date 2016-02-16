@@ -337,6 +337,7 @@ public class CreateRecipe extends Activity {
                 toast.show();
                 Intent intent = new Intent(CreateRecipe.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             } else {
                 Toast toast = Toast.makeText(CreateRecipe.this, "this database is unavailable", Toast.LENGTH_SHORT);
                 toast.show();

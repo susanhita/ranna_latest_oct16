@@ -80,6 +80,7 @@ public class AddIngredients extends Activity {
         new AddRecipeClass().execute();
         Intent intent=new Intent(this,SelIngredients.class);
         startActivity(intent);
+        finish();
 
     }
     private class AddRecipeClass extends AsyncTask<Integer, Void, Boolean> {
