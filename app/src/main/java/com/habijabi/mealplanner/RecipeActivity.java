@@ -67,11 +67,11 @@ public class RecipeActivity extends Activity {
             description.setText(desctext+"\n");
 
 //            description.setText(Uri.parse(resourceid).toString());
-            ImageView photo = (ImageView) findViewById(R.id.photo);
-            photo.setImageURI(Uri.parse(resourceid));
-
-            photo.setContentDescription(nametext);
-
+            if (resourceid!="") {
+                ImageView photo = (ImageView) findViewById(R.id.photo);
+                photo.setImageURI(Uri.parse(resourceid));
+                photo.setContentDescription(nametext);
+            }
 
         }
     }

@@ -49,8 +49,8 @@ import java.util.ArrayList;
 
 public class CreateRecipe extends Activity {
     Uri uriSavedImage1,galleryUri;
-    String photo_name, EXTRA = "message", columns, values;
-    Uri uriSavedImage = Uri.parse("file:///sdcard/ArtRage/blah.png");
+    String photo_name, EXTRA = "message", columns, values,uriSavedImageString;
+    Uri uriSavedImage=Uri.parse("android.resource://com.habijabi.mealplanner/"+R.drawable.default_pic);
     boolean camera_flag=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,18 +96,18 @@ public class CreateRecipe extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 if (items[item].equals("Take Photo")) {
-                    camera_flag=true;
+                    camera_flag = true;
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
                     startActivityForResult(intent, 1);
                     //    startActivity(intent);
                 } else if (items[item].equals("Choose from Library")) {
                     Intent intent = new Intent(Intent.ACTION_PICK);
-                         //           android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    //           android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     intent.setType("image/*");
                     intent.setAction(Intent.ACTION_GET_CONTENT);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
-                    startActivityForResult(intent,1);
+                    startActivityForResult(intent, 1);
                     // startActivity(intent);
                 } else if (items[item].equals("Cancel")) {
                     dialog.dismiss();
@@ -115,7 +115,7 @@ public class CreateRecipe extends Activity {
             }
         });
         builder.show();
-
+        editText.setFreezesText(true);
 
     }
 
@@ -191,16 +191,16 @@ public class CreateRecipe extends Activity {
 
     public void save(View view) throws FileNotFoundException {
         ////////////////
-
-
-        uriSavedImage1 = Uri.parse(uriSavedImage.toString());
         EditText editText = (EditText) findViewById(R.id.recipe_name);
         String recipe_name = editText.getText().toString();
+        uriSavedImage1 = Uri.parse(uriSavedImage.toString());
         if (recipe_name.length() <= 0) {
             Toast toast = Toast.makeText(this, "Please enter a valid recipe name", Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
+        uriSavedImageString=uriSavedImage1.toString();
+
         EditText editText1 = (EditText) findViewById(R.id.createRecipe);
         String description = editText1.getText().toString();
         if (description.length() <= 10) {
@@ -211,7 +211,7 @@ public class CreateRecipe extends Activity {
         ArrayList<String> params=new ArrayList<String>();
         params.add(recipe_name);
         params.add(description);
-        params.add(uriSavedImage1.toString());
+        params.add(uriSavedImageString);
 
         params.add(values);
         if (camera_flag==true) {
