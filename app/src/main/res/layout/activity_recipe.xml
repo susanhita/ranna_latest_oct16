@@ -11,8 +11,6 @@ android:layout_width="match_parent" android:layout_height="match_parent">
     android:layout_gravity="center"
     android:id="@+id/name" />
 <ImageView
-    android:background="#000000"
-    android:padding="3dp"
     android:layout_width="190dp"
     android:layout_height="190dp"
     android:layout_gravity="center"

@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Type or paste your recipe here"
+            android:text="Description:"
             android:id="@+id/textView"
             />
 
@@ -61,8 +61,8 @@
             android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/createRecipe"
-            android:lines="9"
-            android:hint="Start typing or Long press to paste"
+            android:lines="4"
+            android:hint="Type or Paste the description here"
             android:gravity="top" />
 
         <Button

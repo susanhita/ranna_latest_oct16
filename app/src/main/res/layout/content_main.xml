@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/scrollView"
     android:orientation="vertical"
+    android:background="@drawable/back"
     tools:context=".MainActivity">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
