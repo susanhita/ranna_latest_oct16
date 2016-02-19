@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -88,7 +87,6 @@ public class SuggestRecipe extends Activity {
         }
         Tot_suggest=Tot_suggest.concat(sum_string);
         Tot_suggest = Tot_suggest.concat(";");
-        Log.v("sql query", Tot_suggest);
         if (flag==1) {
             Intent intent = new Intent(this, PrintSuggestedRecipe.class);
             intent.putExtra("Tot_suggest", Tot_suggest);

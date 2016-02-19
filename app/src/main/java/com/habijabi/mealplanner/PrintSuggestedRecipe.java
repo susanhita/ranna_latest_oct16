@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
@@ -45,7 +44,6 @@ public class PrintSuggestedRecipe extends ListActivity {
                     cursor = db.rawQuery(recipes_matched[0], null);
 
                     cursor.moveToFirst();
-                    Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
                     listAdapter = new SimpleCursorAdapter(PrintSuggestedRecipe.this, android.R.layout.simple_list_item_1, cursor, new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
                     setListAdapter(listAdapter);
                     return true;
