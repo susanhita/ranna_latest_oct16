@@ -3,12 +3,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context=".SelIngredients"
+    android:layout_gravity="center"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+
     android:id="@+id/sel_layout"
 
 android:orientation="vertical"
@@ -34,18 +37,19 @@ android:orientation="vertical"
 
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="Add new ingredients"
+        android:padding="5dp"
         android:id="@+id/add_ingredient"
         android:onClick="addIngredient"
         android:layout_marginBottom="10dp"
         android:background="@color/buttoncolor"
         android:layout_gravity="center" />
     <View
-        android:layout_width="fill_parent"
-        android:layout_height="5dp"
-        android:background="#479C47"/>
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:background="#781018"/>
 
     <Button
         android:layout_width="wrap_content"

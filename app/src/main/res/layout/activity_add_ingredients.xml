@@ -6,6 +6,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
+    android:layout_gravity="center"
+
     tools:context="com.habijabi.mealplanner.AddIngredients">
     <EditText
         android:layout_width="wrap_content"
@@ -17,20 +19,20 @@
 
 
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
         android:id="@+id/done"
-        android:layout_width="90dp"
-        android:layout_height="30dp"
         android:background="@drawable/buttonshape"
-        android:text="Done"
+        android:text="Add to the list"
         android:onClick="add_more_done"
         android:padding="5dp"
         />
     <View
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
-        android:layout_height="5dp"
-        android:background="#479C47"/>
+        android:layout_height="3dp"
+        android:background="#781018"/>
 
 
     <RelativeLayout android:id="@+id/frameLayout2"
@@ -50,7 +52,7 @@
         <Button
             android:layout_width="95dp"
             android:layout_height="45dp"
-            android:text="Add to the list"
+            android:text="Add"
             android:id="@+id/button2"
             android:background="@drawable/buttonshape"
             android:onClick="add_ingredients_to_db"

@@ -42,8 +42,7 @@ public class AddIngredients extends Activity {
         i++;
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.frameLayout2);
         layout.setVisibility(View.VISIBLE);
-        Button done=(Button)findViewById(R.id.done);
-        done.setText("Add more");
+
         TextView textView3 = (TextView) findViewById(R.id.textView3);
         String final_string = new String("You added the following ingredients :-");
 

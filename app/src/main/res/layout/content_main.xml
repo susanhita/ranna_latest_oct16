@@ -17,6 +17,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
+    android:layout_gravity="center"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
 
