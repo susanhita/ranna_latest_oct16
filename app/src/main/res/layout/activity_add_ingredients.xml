@@ -47,9 +47,8 @@
         android:orientation="vertical"
         tools:context=".AddIngredients">
     <RelativeLayout android:id="@+id/frameLayout2"
-        android:layout_width="367dp"
-        android:layout_gravity="center"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:visibility="invisible">
 
 
@@ -60,6 +59,16 @@
             android:text="You added the following ingredients"
             android:id="@+id/textView3"
             />
+
+
+
+
+
+
+
+
+
+
 
         <Button
             android:layout_width="95dp"

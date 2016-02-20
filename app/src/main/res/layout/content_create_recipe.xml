@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/scrollView"
-    android:layout_gravity="center"
-    android:orientation="vertical"
-    tools:context=".CreateRecipe">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         xmlns:tools="http://schemas.android.com/tools"
@@ -23,7 +14,7 @@
 
 
         <EditText
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
@@ -56,8 +47,11 @@
             android:ems="10"
             android:id="@+id/createRecipe"
             android:lines="3"
+            android:scrollbars="vertical"
             android:hint="Type or Paste the description here"
-            android:gravity="top" />
+            android:gravity="left"
+            android:nestedScrollingEnabled="true"
+            android:scrollIndicators="left" />
 
         <Button
             android:background="@drawable/buttonshape"
@@ -77,10 +71,5 @@
             android:id="@+id/button"
             android:onClick="save"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/blah"
-            />
-    </LinearLayout></ScrollView>
+
+    </LinearLayout>
