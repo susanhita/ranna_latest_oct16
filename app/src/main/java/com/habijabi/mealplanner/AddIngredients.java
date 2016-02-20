@@ -50,7 +50,7 @@ public class AddIngredients extends Activity {
         for (int l = 0; l < i; l++) {
             final_string = final_string + (String.format("\n %s ", ingredient[l]));
         }
-        textView3.setText(final_string);
+        textView3.setText(final_string.replaceAll("_"," "));
     }
 
 

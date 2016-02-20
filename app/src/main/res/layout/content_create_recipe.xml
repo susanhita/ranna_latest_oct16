@@ -46,7 +46,7 @@
             android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/createRecipe"
-            android:lines="3"
+            android:lines="5"
             android:scrollbars="vertical"
             android:hint="Type or Paste the description here"
             android:gravity="left"
