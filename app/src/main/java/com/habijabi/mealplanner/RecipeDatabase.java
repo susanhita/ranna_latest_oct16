@@ -14,7 +14,7 @@ import java.net.URI;
 
 public class RecipeDatabase  extends SQLiteOpenHelper {
     private static final int DB_VERSION=1;
-    private static final String DB_NAME="RecipeDatabase6";
+    private static final String DB_NAME="RecipeDatabase0";
 
     RecipeDatabase(Context context){
         super(context,DB_NAME,null,DB_VERSION);
@@ -27,13 +27,12 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 + "IMAGE_RESOURCE_ID TEXT);");
 
 
-        Uri path1=Uri.parse("android.resource://com.habijabi.mealplanner/"+R.drawable.cappuccino);
-        Uri path2=Uri.parse("android.resource://com.habijabi.mealplanner/"+R.drawable.latte);
-        Uri path3=Uri.parse("android.resource://com.habijabi.mealplanner/"+R.drawable.filter);
-
-        insertDrink(db, "capuccino", "espresso,hot milk,steam",path1 );
-        insertDrink(db,"latte","espresso , steamed milk",path2);
-        insertDrink(db, "Filter", "fresh roasted beans", path3);
+        Uri path1=Uri.parse("android.resource://com.habijabi.mealplanner/"+R.drawable.pancake);
+        String recipe_description="\n" +
+                "    Combine milk with vinegar in a medium bowl and set aside for 5 minutes to \"sour\".\n" +
+                "    Combine flour, sugar, baking powder, baking soda, and salt in a large mixing bowl. Whisk egg and butter into \"soured\" milk. Pour the flour mixture into the wet ingredients and whisk until lumps are gone.\n" +
+                "    Heat a large skillet over medium heat, and coat with cooking spray. Pour 1/4 cupfuls of batter onto the skillet, and cook until bubbles appear on the surface. Flip with a spatula, and cook until browned on the other side.\n";
+        insertDrink(db, "pancake",recipe_description,path1 );
 
 
     }

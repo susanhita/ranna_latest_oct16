@@ -25,7 +25,7 @@ public class RandomReceipe extends Activity {
                 setContentView(R.layout.activity_random_receipe);
                 ActionBar actionBar=getActionBar();
                 int id,max,min;
-                max=3;
+                max=1;
                 min=1;
 
                 Random rand = new Random();

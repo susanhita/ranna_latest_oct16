@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -13,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
+        android:layout_gravity="center"
         android:hint="Add more ingredients"
         android:padding="10dp" />
 
@@ -22,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:id="@+id/done"
+        android:layout_gravity="center"
         android:background="@drawable/buttonshape"
         android:text="Add to the list"
         android:onClick="add_more_done"
@@ -34,9 +37,18 @@
         android:layout_height="3dp"
         android:background="#781018"/>
 
-
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView9"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        tools:context=".AddIngredients">
     <RelativeLayout android:id="@+id/frameLayout2"
         android:layout_width="367dp"
+        android:layout_gravity="center"
         android:layout_height="match_parent"
         android:visibility="invisible">
 
@@ -78,5 +90,6 @@
 
 
     </RelativeLayout>
+    </ScrollView>
 
 </LinearLayout>
