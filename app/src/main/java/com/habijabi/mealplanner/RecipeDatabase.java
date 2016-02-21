@@ -14,7 +14,7 @@ import java.net.URI;
 
 public class RecipeDatabase  extends SQLiteOpenHelper {
     private static final int DB_VERSION=1;
-    private static final String DB_NAME="RecipeDatabase";
+    private static final String DB_NAME="RecipeDatabaseq";
 
     RecipeDatabase(Context context){
         super(context,DB_NAME,null,DB_VERSION);
@@ -24,8 +24,12 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE RECIPE(_id INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "NAME TEXT, "
                 + "DESCRIPTION TEXT,"
-                + "IMAGE_RESOURCE_ID TEXT);");
+                + "IMAGE_RESOURCE_ID TEXT,"
+                + "GROCERY_LIST TEXT" +
+                ");");
 
+//The grocery_list column will only be used in the pancake row.
+// This was done to prevent another table for grocery list
 
         Uri path1=Uri.parse("android.resource://com.habijabi.mealplanner/"+R.drawable.pancake);
         String recipe_description="\n" + "Ingredients needed\n"+
@@ -41,6 +45,7 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         drinkValues.put("NAME", name);
         drinkValues.put("DESCRIPTION", description);
         drinkValues.put("IMAGE_RESOURCE_ID", image.toString());
+        drinkValues.put("GROCERY_LIST","No Grocery List saved.");
         db.insert("RECIPE", null, drinkValues);
     }
 

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class Grocery extends Activity {
+    public static Boolean grocery=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +34,15 @@ public class Grocery extends Activity {
         finish();
     }
 
+    public void sel_ingredients(View view){
+        Intent intent=new Intent(this,SelIngredients.class);
+        grocery=true;
+        startActivity(intent);
+    }
 
+    public void view_list(View view)
+    {
+        Intent intent=new Intent(this,ViewGroceryList.class);
+        startActivity(intent);
+    }
 }

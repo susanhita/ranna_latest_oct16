@@ -10,115 +10,98 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-
-
-
         <activity
             android:name=".SplashScreen"
-            android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
-
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
-
         </activity>
-
-
-
-
         <activity
             android:name=".CreateRecipe"
             android:label="@string/title_activity_create_recipe"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT"
                 android:value=".MainActivity" />
         </activity>
-
-
-
-        <activity android:name=".ViewRecipe"
-            android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".ViewRecipe"
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-
-
-        <activity android:name=".RecipeActivity"
-            android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".RecipeActivity"
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-
-
-        <activity android:name=".RandomReceipe"
-            android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".RandomReceipe"
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-
-
         <activity
             android:name=".SelIngredients"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-
-
-        <activity android:name=".AddIngredients"
+        <activity
+            android:name=".AddIngredients"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName=".SelIngredients">
+            android:parentActivityName=".SelIngredients" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SelIngredients" />
         </activity>
-
-
-
-        <activity android:name=".SuggestRecipe"
-            android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".SuggestRecipe"
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
-
-
-        <activity android:name=".PrintSuggestedRecipe"
-            android:parentActivityName=".SuggestRecipe">
+        <activity
+            android:name=".PrintSuggestedRecipe"
+            android:parentActivityName=".SuggestRecipe" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SuggestRecipe" />
         </activity>
-
-
-
-
-        <activity android:name=".Grocery"
-            android:parentActivityName=".MainActivity"
-            android:label="Grocery List">
+        <activity
+            android:name=".Grocery"
+            android:label="Grocery List"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity android:name=".CreateGroceryList"
+            android:parentActivityName=".Grocery" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Grocery" />
+        </activity>
+        <activity android:name=".ViewGroceryList"
+            android:parentActivityName=".Grocery" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Grocery" />
         </activity>
     </application>
 

@@ -115,7 +115,6 @@ public class CreateRecipe extends Activity {
             }
         });
         builder.show();
-        editText.setFreezesText(true);
 
     }
 

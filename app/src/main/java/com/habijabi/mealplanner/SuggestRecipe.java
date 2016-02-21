@@ -54,7 +54,7 @@ public class SuggestRecipe extends Activity {
 
             LinearLayout layout = (LinearLayout) findViewById(R.id.suggest_recipe);
 
-            for (int k = 4; k < j; k++) {
+            for (int k = 5; k < j; k++) {
                 CheckBox chkTeamName = new CheckBox(SuggestRecipe.this);
                 chkTeamName.setId(k);
                 chkTeamName.setText(ingtext[k].replaceAll("_", " "));
@@ -72,7 +72,7 @@ public class SuggestRecipe extends Activity {
         int flag=0;
 
         String Tot_suggest="SELECT _id,NAME FROM RECIPE WHERE ";
-        for (int k = 4; k <  j; k++) {
+        for (int k = 5; k <  j; k++) {
             CheckBox chkTeamName = (CheckBox) findViewById(k);
             if (chkTeamName.isChecked()) {
                flag=1;

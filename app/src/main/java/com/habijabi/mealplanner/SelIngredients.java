@@ -2,7 +2,6 @@ package com.habijabi.mealplanner;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,15 +12,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 
@@ -38,6 +30,10 @@ public class SelIngredients extends Activity {
         setContentView(R.layout.activity_sel_ingredients);
         if (savedInstanceState != null) {
              i=savedInstanceState.getInt("i");
+        }
+        if (Grocery.grocery==true) {
+            TextView choose = (TextView) findViewById(R.id.choose_text);
+            choose.setText("Select items you need to buy:-");
         }
         new displayCheckboxes().execute();
     }
@@ -68,7 +64,7 @@ public class SelIngredients extends Activity {
         }
 
         protected void onPostExecute(Boolean success) {
-            if (j > 4) {
+            if (j > 5) {
                 //  Button add_ingredient=(Button)findViewById(R.id.add_ingredient);
 
                 Button ins = (Button) findViewById(R.id.insert_to_db);
@@ -79,7 +75,7 @@ public class SelIngredients extends Activity {
             }
             LinearLayout layout = (LinearLayout) findViewById(R.id.layout_ingredient);
 
-            for (int k = 4; k < j; k++) {
+            for (int k = 5; k < j; k++) {
                 CheckBox chkTeamName = new CheckBox(SelIngredients.this);
                 chkTeamName.setId(k);
                 chkTeamName.setText(ingtext[k].replaceAll("_", " "));
@@ -100,24 +96,38 @@ public class SelIngredients extends Activity {
 
    public void insert_Ingredients(View view) {
        int flag=0;
-        for (int k = 4; k <  j; k++) {
+       String list="";
+        for (int k = 5; k <  j; k++) {
             CheckBox chkTeamName = (CheckBox) findViewById(k);
             if (chkTeamName.isChecked()) {
                 flag=1;
+                list=list.concat(ingtext[k]+"\n");
                 Tot_col = Tot_col.concat(","+ingtext[k]);
                 Tot_val= Tot_val.concat(",'YES'");
             }
         }
-        if (flag==1) {
-            Intent intent = new Intent(this, CreateRecipe.class);
-            intent.putExtra("Tot_col", Tot_col);
-            intent.putExtra("Tot_val", Tot_val);
-            startActivity(intent);
-        }
+       if (flag==1) {
+           if (Grocery.grocery==true) {
+               Intent intent = new Intent(this, CreateGroceryList.class);
+               intent.putExtra("list", list);
+               startActivity(intent);
+
+           }
+
+           else {
+               Intent intent = new Intent(this, CreateRecipe.class);
+               intent.putExtra("Tot_col", Tot_col);
+               intent.putExtra("Tot_val", Tot_val);
+               startActivity(intent);
+           }
+       }
+
        else{
             Toast toast=Toast.makeText(this,"Select ingredient first.",Toast.LENGTH_SHORT);
             toast.show();
         }
+
+
    }
 
 
