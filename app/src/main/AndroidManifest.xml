@@ -3,6 +3,7 @@
     package="com.habijabi.mealplanner" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <permission android:name="android.permission.STATUS_BAR_SERVICE" android:protectionLevel="signature" />
 
     <application
         android:allowBackup="true"
@@ -10,6 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+
         <activity
             android:name=".SplashScreen"
             android:configChanges="orientation|screenSize"
@@ -90,6 +92,9 @@
             android:name=".Grocery"
             android:label="Grocery List"
             android:parentActivityName=".MainActivity" >
+            <service android:name=".service.ScheduleService"
+                android:exported="false"/>
+            <service android:name=".service.NotifyService" />
         </activity>
         <activity android:name=".CreateGroceryList"
             android:parentActivityName=".Grocery" >
@@ -103,6 +108,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Grocery" />
         </activity>
+        <receiver android:name=".NotificationGrocery" />
+
     </application>
 
 </manifest>

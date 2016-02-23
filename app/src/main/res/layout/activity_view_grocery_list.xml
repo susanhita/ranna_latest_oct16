@@ -24,7 +24,7 @@
         android:layout_marginTop="20dp"
         android:layout_below="@+id/textViewlistv"
         android:layout_centerHorizontal="true"
-        android:text="No whatevetr list saved. " />
+        android:text="No list saved. " />
 
 
 

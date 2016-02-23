@@ -10,8 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 public class CreateGroceryList extends Activity {
 
@@ -50,4 +52,15 @@ public class CreateGroceryList extends Activity {
 
         }
     }
+
+
+    android.widget.DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
+
+    int day = datePicker.getDayOfMonth();
+    int month = datePicker.getMonth() + 1;
+    int year = datePicker.getYear();
+    TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+    int hour = timePicker.getCurrentHour();
+    int min = timePicker.getCurrentMinute();
+
 }
