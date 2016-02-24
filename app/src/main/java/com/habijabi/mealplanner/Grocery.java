@@ -28,35 +28,6 @@ public class Grocery extends Activity {
         ActionBar actionBar=getActionBar();
     }
 
-    public void Clicktocalender(View view) {
-        EditText EstrTitle = (EditText) findViewById(R.id.title1);
-        String strTitle = String.valueOf(EstrTitle.getText());
-        EditText Edesciption = (EditText) findViewById(R.id.description1);
-        String strDescription = Edesciption.getText().toString();
-
-
-
-
-
-
-
-
-        Intent intent = new Intent(this, NotificationGrocery.class);
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(ViewGroceryList.class);
-        stackBuilder.addNextIntent(intent);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,intent, 0);
-
-
-        long futureInMillis = SystemClock.elapsedRealtime() + 15000;
-        AlarmManager alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
-
-
-    }
-
-
-
 
 
     public void sel_ingredients(View view){

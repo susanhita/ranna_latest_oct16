@@ -91,6 +91,7 @@ public class SelIngredients extends Activity {
    public void addIngredient(View view){
         Intent intent=new Intent(this,AddIngredients.class);
         startActivity(intent);
+       finish();
    }
 
 
@@ -111,6 +112,7 @@ public class SelIngredients extends Activity {
                Intent intent = new Intent(this, CreateGroceryList.class);
                intent.putExtra("list", list);
                startActivity(intent);
+               finish();
 
            }
 
@@ -119,6 +121,7 @@ public class SelIngredients extends Activity {
                intent.putExtra("Tot_col", Tot_col);
                intent.putExtra("Tot_val", Tot_val);
                startActivity(intent);
+               finish();
            }
        }
 

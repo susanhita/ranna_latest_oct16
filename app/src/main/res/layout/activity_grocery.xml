@@ -11,32 +11,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Remind yourself to buy Grocery"
         android:id="@+id/textView4" />
 
-    <EditText
-        android:layout_below="@id/textView4"
-        android:layout_width="274dp"
-        android:hint="Title"
-        android:layout_height="wrap_content"
-        android:id="@+id/title1" />
 
-    <EditText
-        android:layout_below="@id/title1"
-        android:layout_width="274dp"
-        android:hint="Description"
-        android:layout_height="wrap_content"
-        android:id="@+id/description1" />
-
-
-       <Button
-        android:layout_below="@id/description1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Remind me!"
-        android:background="@drawable/buttonshape"
-        android:onClick="Clicktocalender"
-        android:id="@+id/remind" />
 
     <Button
         android:layout_width="118dp"
@@ -46,7 +25,8 @@
         android:background="@drawable/buttonshape"
         android:onClick="sel_ingredients"
         android:id="@+id/select_ingredients"
-        android:layout_alignTop="@+id/view_list"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/textView4"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -57,8 +37,9 @@
         android:onClick="view_list"
         android:id="@+id/view_list"
         android:layout_gravity="right"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/description1" />
+        android:layout_alignTop="@+id/select_ingredients"
+        android:layout_toEndOf="@+id/select_ingredients"
+        android:layout_marginStart="48dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,4 +50,6 @@
         android:layout_below="@+id/select_ingredients"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true" />
+
+
 </RelativeLayout>
