@@ -111,6 +111,7 @@ public class SelIngredients extends Activity {
            if (Grocery.grocery==true) {
                Intent intent = new Intent(this, CreateGroceryList.class);
                intent.putExtra("list", list);
+               Grocery.grocery=false;
                startActivity(intent);
                finish();
 

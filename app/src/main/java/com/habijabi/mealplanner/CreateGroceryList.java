@@ -62,8 +62,7 @@ public class CreateGroceryList extends Activity {
         }
 
         protected void onPostExecute(Boolean success) {
-            TextView textView = new TextView(CreateGroceryList.this);
-            textView.setText("yupppppp success");
+
 
 
         }
@@ -76,7 +75,6 @@ public class CreateGroceryList extends Activity {
         int mDay = c.get(Calendar.DAY_OF_MONTH);
         int mHour = c.get(Calendar.HOUR);
         int mMinute = c.get(Calendar.MINUTE);
-        zone=c.get(Calendar.ZONE_OFFSET);
 
 
         DatePickerDialog dpd = new DatePickerDialog(this,
