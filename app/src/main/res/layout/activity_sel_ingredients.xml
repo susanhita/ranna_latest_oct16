@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    tools:context=".SelIngredients"
-    android:layout_gravity="center"
 
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,7 +8,8 @@
     android:id="@+id/sel_layout"
 
 android:orientation="vertical"
-    android:weightSum="1">
+    >
+
     <TextView
         android:id="@+id/choose_text"
         android:layout_width="wrap_content"
@@ -27,6 +21,21 @@ android:orientation="vertical"
         android:visibility="invisible"
         android:textIsSelectable="true"
         android:typeface="normal" />
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:background="#781018"/>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView9"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        tools:context=".SelIngredients">
 
     <LinearLayout
         android:orientation="vertical"
@@ -34,18 +43,25 @@ android:orientation="vertical"
         android:layout_height="wrap_content"
         android:id="@+id/layout_ingredient"></LinearLayout>
 
-
+    </ScrollView>
+    <View
+        android:layout_width="200dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="#781018"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="Add new ingredients"
-        android:padding="5dp"
+        android:padding="10dp"
         android:id="@+id/add_ingredient"
         android:onClick="addIngredient"
         android:layout_marginBottom="10dp"
         android:background="@color/buttoncolor"
         android:layout_gravity="center" />
+
     <View
         android:layout_width="wrap_content"
         android:layout_height="3dp"
@@ -62,4 +78,4 @@ android:orientation="vertical"
         android:visibility="invisible"
         android:background="@drawable/buttonshape"
         android:layout_gravity="center|bottom" />
-    </LinearLayout></ScrollView>
+    </LinearLayout>

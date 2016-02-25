@@ -25,6 +25,7 @@ public class AddIngredients extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredients);
         ActionBar actionBar=getActionBar();
+
     }
 
     public void add_more_done(View view) {
@@ -79,7 +80,7 @@ public class AddIngredients extends Activity {
         new AddRecipeClass().execute();
         Intent intent=new Intent(this,SelIngredients.class);
         startActivity(intent);
-        finish();
+     //   finish();
 
     }
     private class AddRecipeClass extends AsyncTask<Integer, Void, Boolean> {
@@ -105,7 +106,7 @@ public class AddIngredients extends Activity {
 
         protected void onPostExecute(Boolean success) {
             if (!success) {
-                Toast toast = Toast.makeText(AddIngredients.this, "this database is unavailable", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(AddIngredients.this, "Please do not add duplicate or improper ingredient names", Toast.LENGTH_SHORT);
                 toast.show();
             }
         }

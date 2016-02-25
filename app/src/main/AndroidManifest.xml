@@ -103,10 +103,10 @@
                 android:value=".Grocery" />
         </activity>
         <activity android:name=".ViewGroceryList"
-            android:parentActivityName=".Grocery" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Grocery" />
+                android:value=".MainActivity" />
         </activity>
         <receiver android:name=".NotificationGrocery" />
 

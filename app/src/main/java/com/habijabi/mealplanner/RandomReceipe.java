@@ -34,6 +34,7 @@ public class RandomReceipe extends Activity {
                 Intent intent = new Intent(this, RecipeActivity.class);
                 intent.putExtra(RecipeActivity.EXTRA_RECIPENO, (int) id);
                 startActivity(intent);
+                finish();
 
 
             }

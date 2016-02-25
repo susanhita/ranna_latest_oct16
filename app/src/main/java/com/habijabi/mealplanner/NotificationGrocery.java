@@ -18,7 +18,7 @@ public class NotificationGrocery extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
                 nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 Notification.Builder mBuilder = new Notification.Builder(context)
-                        .setSmallIcon(R.drawable.default_pic)
+                        .setSmallIcon(R.drawable.icon)
                         .setContentTitle("Time to buy grocery!")
                         .setPriority(Notification.PRIORITY_MAX)
                         .setDefaults(Notification.DEFAULT_VIBRATE)

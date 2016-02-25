@@ -27,7 +27,7 @@ import java.util.Calendar;
 
 public class CreateGroceryList extends Activity {
     TextView datetext,timetext;
-    static int day, month,hour,minute1,year1,zone;
+    static int day, month,hour,minute1,year1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class CreateGroceryList extends Activity {
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
 
-                        datetext.setText("You are going to set reminder at :-\n"+dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        datetext.setText("Reminder set on :-"+dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                         day = dayOfMonth;
                         month = monthOfYear;
                         year1 = year;
@@ -99,7 +99,7 @@ public class CreateGroceryList extends Activity {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
-                        timetext.setText(hourOfDay + ":" + minute);
+                        timetext.setText(" at "+hourOfDay + ":" + minute);
                         hour = hourOfDay;
                         minute1 = minute;
 
@@ -139,5 +139,6 @@ public class CreateGroceryList extends Activity {
             alarm.set(AlarmManager.RTC_WAKEUP, futureInMillis, pendingIntent);
             Intent intent1=new Intent(this,MainActivity.class);
             startActivity(intent1);
+            finish();
         }
 }

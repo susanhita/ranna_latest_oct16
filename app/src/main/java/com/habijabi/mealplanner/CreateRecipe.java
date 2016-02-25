@@ -100,7 +100,6 @@ public class CreateRecipe extends Activity {
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
                     startActivityForResult(intent, 1);
-                    //    startActivity(intent);
                 } else if (items[item].equals("Choose from Library")) {
                     Intent intent = new Intent(Intent.ACTION_PICK);
                     //           android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -108,7 +107,6 @@ public class CreateRecipe extends Activity {
                     intent.setAction(Intent.ACTION_GET_CONTENT);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
                     startActivityForResult(intent, 1);
-                    // startActivity(intent);
                 } else if (items[item].equals("Cancel")) {
                     dialog.dismiss();
                 }

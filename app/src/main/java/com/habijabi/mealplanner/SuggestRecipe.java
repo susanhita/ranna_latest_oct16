@@ -91,6 +91,7 @@ public class SuggestRecipe extends Activity {
             Intent intent = new Intent(this, PrintSuggestedRecipe.class);
             intent.putExtra("Tot_suggest", Tot_suggest);
             startActivity(intent);
+            finish();
         }
         else{
             Toast toast=Toast.makeText(this,"Select ingredient first.",Toast.LENGTH_SHORT);

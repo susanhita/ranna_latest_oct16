@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -25,11 +26,22 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Grocery List"
         android:id="@+id/textViewlist"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/setdate"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
 
-
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context=".CreateGroceryList"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/scrollViewCG"
+        android:fillViewport="false"
+        android:layout_below="@+id/textViewlist"
+        android:layout_centerHorizontal="true">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,23 +49,26 @@
         android:layout_marginTop="20dp"
         android:layout_below="@+id/textViewlist"
         android:layout_centerHorizontal="true" />
+    </ScrollView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/datetext"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/textViewlist"
-         />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/time2"
+        android:layout_below="@+id/textViewlist">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/datetext" />
 
-    <TextView
-        android:layout_toRightOf="@id/datetext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timetext"
-        android:layout_above="@+id/groc_list"
-        android:layout_alignStart="@+id/groc_list" />
+        <TextView
+            android:layout_marginLeft="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timetext" />
+    </LinearLayout>
 
 
 
@@ -68,5 +83,8 @@
         android:onClick="confirm"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+
+
 
 </RelativeLayout>
