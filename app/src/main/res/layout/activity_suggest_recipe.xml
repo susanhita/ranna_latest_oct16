@@ -13,6 +13,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Select the ingredients available with you."
         android:id="@+id/textView8"
@@ -44,6 +45,6 @@
         android:id="@+id/possible"
         android:onClick="suggest"
         android:background="@drawable/buttonshape"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="center" />
 
 </LinearLayout>

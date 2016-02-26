@@ -14,7 +14,7 @@ import java.net.URI;
 
 public class RecipeDatabase  extends SQLiteOpenHelper {
     private static final int DB_VERSION=1;
-    private static final String DB_NAME="RecipeDatabaseq";
+    private static final String DB_NAME="RecipeDatabase";
 
     RecipeDatabase(Context context){
         super(context,DB_NAME,null,DB_VERSION);

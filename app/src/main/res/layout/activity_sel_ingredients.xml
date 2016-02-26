@@ -15,16 +15,13 @@ android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose ingredients for this recipe:-"
+        android:layout_gravity="center"
         android:padding="5dp"
         android:textSize="22dp"
         android:textColor="#000000"
         android:visibility="invisible"
         android:textIsSelectable="true"
         android:typeface="normal" />
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="3dp"
-        android:background="#781018"/>
 
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -45,11 +42,10 @@ android:orientation="vertical"
 
     </ScrollView>
     <View
-        android:layout_width="200dp"
+        android:layout_width="174dp"
         android:layout_height="3dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="5dp"
-        android:background="#781018"/>
+        android:background="#8f8485"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -58,14 +54,14 @@ android:orientation="vertical"
         android:padding="10dp"
         android:id="@+id/add_ingredient"
         android:onClick="addIngredient"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:background="@color/buttoncolor"
         android:layout_gravity="center" />
 
     <View
         android:layout_width="wrap_content"
         android:layout_height="3dp"
-        android:background="#781018"/>
+        android:background="#8f8485"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -73,7 +69,8 @@ android:orientation="vertical"
         android:text="All ingredients checked!"
         android:id="@+id/insert_to_db"
         android:layout_below="@+id/frameLayout2"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:onClick="insert_Ingredients"
         android:visibility="invisible"
         android:background="@drawable/buttonshape"
