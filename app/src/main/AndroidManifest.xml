@@ -76,6 +76,7 @@
         </activity>
         <activity
             android:name=".SuggestRecipe"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -97,6 +98,7 @@
             <service android:name=".service.NotifyService" />
         </activity>
         <activity android:name=".CreateGroceryList"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".Grocery" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

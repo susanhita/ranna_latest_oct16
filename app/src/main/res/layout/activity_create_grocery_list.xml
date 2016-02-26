@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".CreateGroceryList"
+    android:layout_gravity="center"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollViewCG"
+    android:fillViewport="false"
+    android:layout_below="@+id/textViewlist"
+    android:layout_centerHorizontal="true">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.habijabi.mealplanner.CreateGroceryList">
 
@@ -13,11 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Remind me!"
+        android:layout_gravity="center"
+
         android:background="@drawable/buttonshape"
         android:onClick="setdate"
         android:id="@+id/setdate"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/confirm" />
+        android:layout_centerHorizontal="true" />
 
 
     <TextView
@@ -26,65 +38,66 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Grocery List"
         android:id="@+id/textViewlist"
-        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+
         android:layout_below="@+id/setdate"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
-
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:context=".CreateGroceryList"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/scrollViewCG"
-        android:fillViewport="false"
-        android:layout_below="@+id/textViewlist"
-        android:layout_centerHorizontal="true">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/groc_list"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/textViewlist"
-        android:layout_centerHorizontal="true" />
-    </ScrollView>
+        />
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:id="@+id/time2"
-        android:layout_below="@+id/textViewlist">
+        android:layout_below="@+id/setdate"
+        android:layout_centerHorizontal="true"
+
+        android:weightSum="1">
 
         <TextView
+            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/datetext" />
+            android:id="@+id/datetext"
+            android:layout_marginRight="2dp"
+
+            android:layout_weight="0.06" />
 
         <TextView
-            android:layout_marginLeft="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/timetext" />
     </LinearLayout>
 
-
-
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="confirm notification time"
+
         android:background="@drawable/buttonshape"
         android:visibility="invisible"
         android:id="@+id/confirm"
         android:onClick="confirm"
-        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textViewlist" />
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/groc_list"
+        android:layout_gravity="center"
+
+        android:layout_below="@+id/textViewlist"
         android:layout_centerHorizontal="true" />
 
 
 
 
+
+
+
 </RelativeLayout>
+    </ScrollView>
