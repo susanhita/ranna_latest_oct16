@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends Activity {
-
+    public static Boolean delete=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,11 @@ public class MainActivity extends Activity {
     }
     public void random_receipe(View view){
         Intent intent=new Intent(this,RandomReceipe.class);
+        startActivity(intent);
+    }
+    public void delete_receipe(View view){
+        this.delete=true;
+        Intent intent=new Intent(this,ViewRecipe.class);
         startActivity(intent);
     }
 

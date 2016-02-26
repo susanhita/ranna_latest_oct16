@@ -3,6 +3,7 @@ package com.habijabi.mealplanner;
 import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +11,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
@@ -55,9 +57,19 @@ public class ViewRecipe extends ListActivity {
     }
 
     public void onListItemClick(ListView listView, View itemView, int position, long id) {
-        Intent intent = new Intent(this, RecipeActivity.class);
-        intent.putExtra(RecipeActivity.EXTRA_RECIPENO, (int) id);
-        startActivity(intent);
+        if (MainActivity.delete==true){
+            MainActivity.delete=false;
+            Intent intent = new Intent(ViewRecipe.this, DeleteActivity.class);
+            intent.putExtra(DeleteActivity.DELETE_RECIPENO, (int) id);
+            startActivity(intent);
+            finish();
+
+        }
+        else {
+            Intent intent = new Intent(this, RecipeActivity.class);
+            intent.putExtra(RecipeActivity.EXTRA_RECIPENO, (int) id);
+            startActivity(intent);
+        }
 
     }
 }

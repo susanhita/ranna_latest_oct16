@@ -3,7 +3,10 @@
     package="com.habijabi.mealplanner" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <permission android:name="android.permission.STATUS_BAR_SERVICE" android:protectionLevel="signature" />
+
+    <permission
+        android:name="android.permission.STATUS_BAR_SERVICE"
+        android:protectionLevel="signature" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +14,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".SplashScreen"
             android:configChanges="orientation|screenSize"
@@ -93,25 +95,34 @@
             android:name=".Grocery"
             android:label="Grocery List"
             android:parentActivityName=".MainActivity" >
-            <service android:name=".service.ScheduleService"
-                android:exported="false"/>
+            <service
+                android:name=".service.ScheduleService"
+                android:exported="false" />
             <service android:name=".service.NotifyService" />
         </activity>
-        <activity android:name=".CreateGroceryList"
+        <activity
+            android:name=".CreateGroceryList"
             android:configChanges="orientation|screenSize"
             android:parentActivityName=".Grocery" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Grocery" />
         </activity>
-        <activity android:name=".ViewGroceryList"
+        <activity
+            android:name=".ViewGroceryList"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <receiver android:name=".NotificationGrocery" />
 
+        <activity android:name=".DeleteActivity"
+
+         android:theme="@android:style/Theme.Holo.Dialog" >
+
+        </activity>
     </application>
 
 </manifest>

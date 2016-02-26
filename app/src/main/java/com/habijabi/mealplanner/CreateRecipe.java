@@ -270,6 +270,8 @@ public class CreateRecipe extends Activity {
             try {
                 os = getContentResolver().openOutputStream(uriSavedImage);
             } catch (FileNotFoundException e) {
+                Toast toast = Toast.makeText(CreateRecipe.this, "There is a problem with Image file.", Toast.LENGTH_SHORT);
+                toast.show();
                 e.printStackTrace();
                 return false;
             }
@@ -279,7 +281,7 @@ public class CreateRecipe extends Activity {
 
         protected void onPostExecute(Boolean success) {
             if (!success) {
-                Toast toast = Toast.makeText(CreateRecipe.this, "Issues with Image file.", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(CreateRecipe.this, "There is a problem with Image file.", Toast.LENGTH_SHORT);
                 toast.show();
             }
         }
