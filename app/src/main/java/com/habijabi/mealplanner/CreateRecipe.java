@@ -49,7 +49,7 @@ import java.util.ArrayList;
 
 public class CreateRecipe extends Activity {
     Uri uriSavedImage1,galleryUri;
-    String photo_name, EXTRA = "message", columns, values,uriSavedImageString;
+    String photo_name, EXTRA = "message", columns, values,uriSavedImageString,ingredients;
     Uri uriSavedImage=Uri.parse("android.resource://com.habijabi.mealplanner/"+R.drawable.default_pic);
     boolean camera_flag=false;
     @Override
@@ -60,6 +60,8 @@ public class CreateRecipe extends Activity {
         Intent intent = getIntent();
         columns = intent.getStringExtra("Tot_col");
         values = intent.getStringExtra("Tot_val");
+        EditText ed=(EditText)findViewById(R.id.createRecipe);
+        ed.setText("Ingredients:-\n"+columns.replaceAll(",","\n"));
         ActionBar actionBar = getActionBar();
     }
 
