@@ -38,6 +38,11 @@ public class SelIngredients extends Activity {
         new displayCheckboxes().execute();
     }
 
+    public void onDestroy() {
+        super.onDestroy();
+        Grocery.grocery=false;
+
+    }
     private class displayCheckboxes extends AsyncTask<Integer, Void, Boolean> {
         protected void onPreExecute() {
         }

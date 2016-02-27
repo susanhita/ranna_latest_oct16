@@ -51,6 +51,7 @@ public class ViewRecipe extends ListActivity {
 
     public void onDestroy() {
         super.onDestroy();
+        MainActivity.delete=false;
         cursor.close();
         db.close();
 
