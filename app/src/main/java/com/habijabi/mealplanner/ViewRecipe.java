@@ -59,11 +59,16 @@ public class ViewRecipe extends ListActivity {
 
     public void onListItemClick(ListView listView, View itemView, int position, long id) {
         if (MainActivity.delete==true){
-            MainActivity.delete=false;
-            Intent intent = new Intent(ViewRecipe.this, DeleteActivity.class);
-            intent.putExtra(DeleteActivity.DELETE_RECIPENO, (int) id);
-            startActivity(intent);
-            finish();
+            if (id==1){
+                Toast toast = Toast.makeText(this, "Sorry default recipe cannot be deleted", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else {
+                Intent intent = new Intent(ViewRecipe.this, DeleteActivity.class);
+                intent.putExtra(DeleteActivity.DELETE_RECIPENO, (int) id);
+                startActivity(intent);
+                finish();
+            }
 
         }
         else {
