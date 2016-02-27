@@ -17,13 +17,14 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
-    android:layout_gravity="center"
+    android:layout_gravity="center_vertical"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
 
     <Button
         android:layout_gravity="center_horizontal"
         android:id="@+id/create"
+        android:layout_marginTop="25dp"
         android:text="Save a Recipe"
         android:textColor="#000000"
         android:layout_width="wrap_content"
@@ -35,7 +36,7 @@
     <Button
         android:layout_gravity="center_horizontal"
         android:id="@+id/view"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="View your RecipeBook"
         android:textColor="#000000"
         android:layout_width="wrap_content"
@@ -46,7 +47,7 @@
     <Button
         android:layout_gravity="center_horizontal"
         android:id="@+id/random"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="Random Recipe"
         android:textColor="#000000"
         android:layout_width="wrap_content"
@@ -58,7 +59,7 @@
     <Button
         android:layout_gravity="center_horizontal"
         android:id="@+id/delete"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="Delete Recipe"
         android:textColor="#000000"
         android:layout_width="wrap_content"
@@ -71,7 +72,7 @@
     <Button
         android:layout_gravity="center_horizontal"
         android:id="@+id/suggest"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="Suggest Menu with stuff available"
         android:textColor="#000000"
        android:layout_width="wrap_content"
@@ -84,7 +85,7 @@
     <Button
         android:layout_gravity="center_horizontal"
         android:id="@+id/grocery"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="Grocery list for this week"
         android:textColor="#000000"
         android:layout_width="wrap_content"
