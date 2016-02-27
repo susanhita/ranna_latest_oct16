@@ -18,12 +18,20 @@ android:layout_width="match_parent" android:layout_height="match_parent">
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:layout_gravity="center"
     android:id="@+id/name" />
-<ImageView
-    android:layout_width="190dp"
-    android:layout_height="190dp"
-    android:layout_gravity="center"
-    android:id="@+id/photo"
-    android:paddingEnd="@dimen/abc_button_padding_horizontal_material" />
+    <LinearLayout
+        android:layout_width="210dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:background="@color/outerframe"
+        android:layout_height="210dp">
+        <ImageView
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:id="@+id/photo"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/innerframe"
+            />
+    </LinearLayout>
 
 
 
