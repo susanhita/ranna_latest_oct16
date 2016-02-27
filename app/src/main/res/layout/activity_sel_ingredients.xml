@@ -31,7 +31,6 @@ android:orientation="vertical"
         android:id="@+id/scrollView9"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:layout_weight="1"
         tools:context=".SelIngredients">
 
     <LinearLayout
