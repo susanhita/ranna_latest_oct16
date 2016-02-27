@@ -3,16 +3,16 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:id="@+id/scrollView7"
+    android:fillViewport="true"
     android:layout_gravity="center"
     android:orientation="vertical"
     tools:context=".CreateRecipe">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_gravity="center"
         xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
         android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -24,7 +24,6 @@
 
 
         <EditText
-            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
@@ -46,34 +45,34 @@
             android:onClick="paste" />
 
 
-
-
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Type or Paste the description below:"
+            android:id="@+id/textView2" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="109dp"
+            android:layout_height="0dp"
             android:inputType="textMultiLine"
-            android:ems="10"
             android:id="@+id/createRecipe"
-            android:lines="5"
             android:scrollbars="vertical"
-            android:hint="Type or Paste the description here"
             android:gravity="left"
-            android:nestedScrollingEnabled="true"
-            android:scrollIndicators="left" />
+            android:layout_weight="1"
+             />
 
         <Button
             android:background="@drawable/buttonshape"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="Upload photo"
+            android:text="Upload image"
             android:id="@+id/recipepic"
             android:onClick="recipe_pic"/>
 
 
         <Button
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/buttonshape"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

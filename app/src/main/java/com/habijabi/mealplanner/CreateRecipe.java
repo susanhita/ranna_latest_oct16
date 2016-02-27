@@ -61,7 +61,7 @@ public class CreateRecipe extends Activity {
         columns = intent.getStringExtra("Tot_col");
         values = intent.getStringExtra("Tot_val");
         EditText ed=(EditText)findViewById(R.id.createRecipe);
-        ed.setText("Ingredients:-\n"+columns.replaceAll(",","\n"));
+        ed.setText("Ingredients:-"+columns.replaceAll(",","\n"));
         ActionBar actionBar = getActionBar();
     }
 
