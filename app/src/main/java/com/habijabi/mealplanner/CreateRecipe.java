@@ -33,6 +33,7 @@ import android.app.AlertDialog;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,7 +77,8 @@ public class CreateRecipe extends Activity {
         }
         photo_name = recipe_name.replaceAll("\\s+", "");
         /* creating folder*/
-        File dir = new File("file:///sdcard/MealPlanner/");
+     //   File sdDir = Environment.getExternalStorageDirectory();
+        File dir = new File(Environment.getExternalStorageDirectory()+"/MealPlanner/");
         try{
             if(dir.mkdir()) {
                 System.out.println("Directory created");
@@ -90,7 +92,13 @@ public class CreateRecipe extends Activity {
 
 
 
-        uriSavedImage = Uri.parse("file:///sdcard/MealPlanner/"+ photo_name + ".png");
+        uriSavedImage = Uri.parse("file://"+dir+"/"+ photo_name + ".png");
+        TextView tt=new TextView(this);
+        tt.setText(uriSavedImage.toString());
+        LinearLayout ll=(LinearLayout)findViewById(R.id.create_layout);
+        ll.addView(tt);
+
+
         final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add Photo!");
@@ -162,7 +170,7 @@ public class CreateRecipe extends Activity {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                bmp.compress(Bitmap.CompressFormat.JPEG, 100, os);
+                bmp.compress(Bitmap.CompressFormat.JPEG, 80, os);
 
             }
 
@@ -226,24 +234,8 @@ public class CreateRecipe extends Activity {
 
         protected Boolean doInBackground(ArrayList<String>... params) {
 
-            ExifInterface exif = null;
-            try {
-               exif = new ExifInterface(Environment.getExternalStorageDirectory()+"/MealPlanner/" + photo_name + ".png");
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-            int rotationAngle = 0;
-            if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("6")) {
-                rotationAngle = 90; //90
-            } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("8")) {
-                rotationAngle = 270; //270
-            } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("3")) {
-                rotationAngle = 180; //180
-            } else if (exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("0")) {
-                rotationAngle = 90; //90
-            }
-            Bitmap bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory()+"/MealPlanner/" + photo_name + ".png");
+
+             Bitmap bmp = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory()+"/MealPlanner/" + photo_name + ".png");
 
           int maxHeight=600;
             int maxWidth=600;
@@ -264,7 +256,6 @@ public class CreateRecipe extends Activity {
                 bmp = Bitmap.createScaledBitmap(bmp, finalWidth, finalHeight, true);
             }
             Matrix matrix = new Matrix();
-            matrix.postRotate(rotationAngle);
             bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
 
 
