@@ -26,7 +26,7 @@
         android:id="@+id/done"
         android:layout_gravity="center"
         android:background="@drawable/buttonshape"
-        android:text="Add to the list"
+        android:text="Add"
         android:onClick="add_more_done"
         android:padding="5dp"
         />
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_vertical"
-            android:text="You added the following ingredients"
+            android:text="You added the following ingredients:-"
             android:id="@+id/textView3"
             />
 
@@ -73,7 +73,7 @@
         <Button
             android:layout_width="95dp"
             android:layout_height="45dp"
-            android:text="Add"
+            android:text="Done"
             android:id="@+id/button2"
             android:background="@drawable/buttonshape"
             android:onClick="add_ingredients_to_db"

@@ -39,6 +39,5 @@ public class CreateRecipe1 extends Activity {
         intent.putExtra("recipe_name",recipe_name);
         intent.putExtra("ingredients",ingredients);
         startActivity(intent);
-        finish();
     }
 }
