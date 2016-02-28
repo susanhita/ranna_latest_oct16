@@ -50,31 +50,25 @@ import java.util.ArrayList;
 
 public class CreateRecipe extends Activity {
     Uri uriSavedImage1,galleryUri;
-    String photo_name, EXTRA = "message", columns, values,uriSavedImageString,ingredients;
+    String photo_name, EXTRA = "message", columns, values,uriSavedImageString,ingredients,recipe_name;
     Uri uriSavedImage=Uri.parse("android.resource://com.habijabi.mealplanner/"+R.drawable.default_pic);
     boolean camera_flag=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_recipe);
-
         Intent intent = getIntent();
         columns = intent.getStringExtra("Tot_col");
         values = intent.getStringExtra("Tot_val");
-        EditText ed=(EditText)findViewById(R.id.createRecipe);
-        ed.setText("Ingredients:-"+columns.replaceAll(",","\n"));
+        recipe_name=intent.getStringExtra("recipe_name");
+        ingredients=intent.getStringExtra("ingredients");
+
         ActionBar actionBar = getActionBar();
     }
 
 
     public void recipe_pic(View view) throws IOException {
-        EditText editText = (EditText) findViewById(R.id.recipe_name);
-        String recipe_name = editText.getText().toString();
-        if (recipe_name.length() == 0) {
-            Toast toast = Toast.makeText(this, "Please enter a valid recipe name", Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        }
+
         photo_name = recipe_name.replaceAll("\\s+", "");
         /* creating folder*/
      //   File sdDir = Environment.getExternalStorageDirectory();
@@ -93,15 +87,11 @@ public class CreateRecipe extends Activity {
 
 
         uriSavedImage = Uri.parse("file://"+dir+"/"+ photo_name + ".png");
-        TextView tt=new TextView(this);
-        tt.setText(uriSavedImage.toString());
-        LinearLayout ll=(LinearLayout)findViewById(R.id.create_layout);
-        ll.addView(tt);
 
 
         final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Add Photo!");
+        builder.setTitle("Take a photo in landscape mode");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
@@ -198,8 +188,6 @@ public class CreateRecipe extends Activity {
 
     public void save(View view) throws FileNotFoundException {
         ////////////////
-        EditText editText = (EditText) findViewById(R.id.recipe_name);
-        String recipe_name = editText.getText().toString();
         uriSavedImage1 = Uri.parse(uriSavedImage.toString());
         if (recipe_name.length() <= 0) {
             Toast toast = Toast.makeText(this, "Please enter a valid recipe name", Toast.LENGTH_SHORT);
@@ -207,6 +195,7 @@ public class CreateRecipe extends Activity {
             return;
         }
         uriSavedImageString=uriSavedImage1.toString();
+
 
         EditText editText1 = (EditText) findViewById(R.id.createRecipe);
         String description = editText1.getText().toString();
@@ -217,7 +206,7 @@ public class CreateRecipe extends Activity {
         }
         ArrayList<String> params=new ArrayList<String>();
         params.add(recipe_name);
-        params.add(description);
+        params.add(ingredients+"\n"+description);
         params.add(uriSavedImageString);
 
         params.add(values);

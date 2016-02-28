@@ -123,7 +123,7 @@ public class SelIngredients extends Activity {
            }
 
            else {
-               Intent intent = new Intent(this, CreateRecipe.class);
+               Intent intent = new Intent(this, CreateRecipe1.class);
                intent.putExtra("Tot_col", Tot_col);
                intent.putExtra("Tot_val", Tot_val);
                startActivity(intent);

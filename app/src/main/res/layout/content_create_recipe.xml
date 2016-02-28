@@ -24,14 +24,6 @@
         >
 
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:id="@+id/recipe_name"
-            android:hint="Recipe Name"/>
-
 
 
 
@@ -41,29 +33,15 @@
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="Paste"
-            android:layout_gravity="right"
             android:id="@+id/paste"
-            android:onClick="paste" />
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:id="@+id/ingredients" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Type or Paste the description below:"
-            android:id="@+id/textView2" />
+            android:onClick="paste"
+            android:layout_gravity="right" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:inputType="textMultiLine"
+            android:hint="Type or paste the description here"
             android:id="@+id/createRecipe"
             android:scrollbars="vertical"
             android:gravity="left"
@@ -76,7 +54,7 @@
             android:layout_height="wrap_content"
             android:text="Add photo"
             android:id="@+id/recipepic"
-            android:onClick="recipe_pic"/>
+            android:onClick="recipe_pic" />
 
 
         <Button

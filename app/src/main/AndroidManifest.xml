@@ -117,10 +117,11 @@
 
         <receiver android:name=".NotificationGrocery" />
 
-        <activity android:name=".DeleteActivity"
-
-         android:theme="@android:style/Theme.Holo.Dialog" >
-
+        <activity
+            android:name=".DeleteActivity"
+            android:theme="@android:style/Theme.Holo.Dialog" >
+        </activity>
+        <activity android:name=".CreateRecipe1" >
         </activity>
     </application>
 
