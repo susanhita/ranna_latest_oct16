@@ -1,5 +1,6 @@
 package com.habijabi.mealplanner;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -23,7 +24,7 @@ public class RecipeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
-
+        ActionBar actionBar=getActionBar();
         //get the drink from inntent
         Intent intent = getIntent();
         int drinkNo = (Integer) getIntent().getExtras().get(EXTRA_RECIPENO);
@@ -31,6 +32,11 @@ public class RecipeActivity extends Activity {
 
     }
 
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        System.gc();
+    }
     private class UpdateRecipeClass extends AsyncTask<Integer,Void,Boolean> {
         String desctext,nametext,resourceid;
         protected void onPreExecute(){}

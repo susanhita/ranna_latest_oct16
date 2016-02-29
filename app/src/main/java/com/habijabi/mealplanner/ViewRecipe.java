@@ -31,6 +31,7 @@ public class ViewRecipe extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActionBar actionBar=getActionBar();
+
         ListView listDrinks = getListView();
 
 
@@ -54,6 +55,7 @@ public class ViewRecipe extends ListActivity {
         MainActivity.delete=false;
         cursor.close();
         db.close();
+        System.gc();
 
     }
 
