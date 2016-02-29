@@ -31,6 +31,7 @@ import android.view.View;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -113,13 +114,17 @@ public class CreateRecipe extends Activity {
             }
         });
         builder.show();
+        Button but=(Button)findViewById(R.id.recipepic);
+        but.setClickable(false);
 
     }
 
 
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+
+        System.gc();
+       super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && camera_flag==false) {
             if(data.getData() != null){
 
@@ -160,7 +165,7 @@ public class CreateRecipe extends Activity {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                bmp.compress(Bitmap.CompressFormat.JPEG, 80, os);
+                bmp.compress(Bitmap.CompressFormat.PNG, 80, os);
 
             }
 
@@ -217,7 +222,9 @@ public class CreateRecipe extends Activity {
     }
 
     private class RotateImageClass extends AsyncTask<ArrayList<String>, Void, Boolean> {
+
         protected void onPreExecute() {
+            System.gc();
             ProgressDialog dialog= ProgressDialog.show(CreateRecipe.this, "Saving", "Saving this recipe in the database!");
         }
 
@@ -257,7 +264,7 @@ public class CreateRecipe extends Activity {
                 e.printStackTrace();
                 return false;
             }
-            bmp.compress(Bitmap.CompressFormat.JPEG, 100, os);
+            bmp.compress(Bitmap.CompressFormat.PNG, 100, os);
             return true;
         }
 
