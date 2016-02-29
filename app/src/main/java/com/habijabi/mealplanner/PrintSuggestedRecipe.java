@@ -1,5 +1,6 @@
 package com.habijabi.mealplanner;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -32,6 +33,8 @@ public class PrintSuggestedRecipe extends ListActivity {
         String recipes_matched = intent.getStringExtra("Tot_suggest");
         // ListView listDrinks = getListView();
         setContentView(R.layout.activity_print_suggested_recipe);
+        ActionBar actionBar=getActionBar();
+
         new MatchRecipeClass().execute(recipes_matched);
     }
         private class MatchRecipeClass extends AsyncTask<String, Void, Boolean> {
