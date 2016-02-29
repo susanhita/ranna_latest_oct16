@@ -31,7 +31,7 @@ public class SelIngredients extends Activity {
         if (savedInstanceState != null) {
              i=savedInstanceState.getInt("i");
         }
-        if (Grocery.grocery==true) {
+        if (Grocery.grocery==true||MainActivity.add_grocery==true) {
             TextView choose = (TextView) findViewById(R.id.choose_text);
             choose.setText("Select items you need to buy:-");
         }
@@ -94,6 +94,8 @@ public class SelIngredients extends Activity {
 
 
    public void addIngredient(View view){
+       if (Grocery.grocery==true)
+           MainActivity.add_grocery=true;
         Intent intent=new Intent(this,AddIngredients.class);
         startActivity(intent);
        finish();
@@ -113,11 +115,12 @@ public class SelIngredients extends Activity {
             }
         }
        if (flag==1) {
-           if (Grocery.grocery==true) {
+           if (Grocery.grocery==true||MainActivity.add_grocery==true) {
                Intent intent = new Intent(this, CreateGroceryList.class);
                intent.putExtra("list", list);
                startActivity(intent);
                Grocery.grocery=false;
+               MainActivity.add_grocery=false;
                finish();
 
            }
