@@ -17,13 +17,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        System.gc();
 
     }
 
     public void create_recipe(View view){
         add_grocery=false;
         Intent intent=new Intent(this,SelIngredients.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
