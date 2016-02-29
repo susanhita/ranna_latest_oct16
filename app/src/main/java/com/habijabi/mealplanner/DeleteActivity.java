@@ -34,6 +34,7 @@ public class DeleteActivity extends Activity {
     public void delete_no(View view){
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
      public void delete_yes(View view){
@@ -41,6 +42,7 @@ public class DeleteActivity extends Activity {
             new DeleteRecipeClass().execute(drinkNo);
             Intent intent=new Intent(this,MainActivity.class);
             startActivity(intent);
+         finish();
      }
 
 
