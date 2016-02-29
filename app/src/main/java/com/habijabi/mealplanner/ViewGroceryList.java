@@ -26,6 +26,7 @@ public class ViewGroceryList extends Activity {
 
     private class ViewListDB extends AsyncTask<String, Void, String> {
         protected void onPreExecute() {
+            System.gc();
         }
         protected String doInBackground(String...list1) {
 

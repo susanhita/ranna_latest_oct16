@@ -34,7 +34,6 @@ public class CreateGroceryList extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_grocery_list);
         ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
         datetext = (TextView) findViewById(R.id.datetext);
         timetext = (TextView) findViewById(R.id.timetext);
 
@@ -57,7 +56,6 @@ public class CreateGroceryList extends Activity {
             SQLiteOpenHelper recipedb = new RecipeDatabase(CreateGroceryList.this);
             SQLiteDatabase db = recipedb.getWritableDatabase();
             db.execSQL("UPDATE RECIPE SET GROCERY_LIST ='" + list + "'  WHERE name='pancake'");
-            // db.execSQL("UPDATE RECIPE SET GROCERY_LIST = 'bullshit'  WHERE name='pancake'");
             return true;
         }
 
