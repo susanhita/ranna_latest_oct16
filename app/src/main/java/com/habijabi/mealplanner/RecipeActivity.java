@@ -66,6 +66,8 @@ public class RecipeActivity extends Activity {
                 toast.show();
             }
             //render
+            ActionBar actionBar=getActionBar();
+            actionBar.setTitle(nametext);
             TextView name = (TextView) findViewById(R.id.name);
             name.setText(nametext+"\n");
 

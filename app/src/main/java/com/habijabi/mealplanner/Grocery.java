@@ -26,6 +26,7 @@ public class Grocery extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grocery);
         ActionBar actionBar=getActionBar();
+        actionBar.setTitle("Grocery List");
     }
 
 

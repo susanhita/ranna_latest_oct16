@@ -24,6 +24,7 @@ public class SuggestRecipe extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_recipe);
         ActionBar actionBar = getActionBar();
+        actionBar.setTitle("Select ingredients available");
         new displayCheckboxes1().execute();
     }
 

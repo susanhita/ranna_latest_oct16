@@ -25,6 +25,8 @@ public class AddIngredients extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredients);
         ActionBar actionBar=getActionBar();
+        actionBar.setTitle("Add new ingredients");
+
 
     }
 
@@ -78,7 +80,7 @@ public class AddIngredients extends Activity {
         //works!!
         //This creates NEW COLUMNS af ingredients
         new AddRecipeClass().execute();
-        Intent intent=new Intent(this,SelIngredients.class);
+        Intent intent=new Intent(this, SelIngredients.class);
         startActivity(intent);
      //   finish();
 

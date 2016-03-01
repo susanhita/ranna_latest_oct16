@@ -34,6 +34,7 @@ public class PrintSuggestedRecipe extends ListActivity {
         // ListView listDrinks = getListView();
         setContentView(R.layout.activity_print_suggested_recipe);
         ActionBar actionBar=getActionBar();
+        actionBar.setTitle("Possible recipes");
 
         new MatchRecipeClass().execute(recipes_matched);
     }

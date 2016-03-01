@@ -31,7 +31,7 @@ public class ViewRecipe extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActionBar actionBar=getActionBar();
-
+        actionBar.setTitle("List of recipes");
         ListView listDrinks = getListView();
 
 

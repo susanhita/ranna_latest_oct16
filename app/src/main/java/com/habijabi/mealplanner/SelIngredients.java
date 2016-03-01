@@ -25,6 +25,7 @@ public class SelIngredients extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActionBar actionBar=getActionBar();
+        actionBar.setTitle("Select Ingredients");
         Tot_col="";
         Tot_val="";
         setContentView(R.layout.activity_sel_ingredients);

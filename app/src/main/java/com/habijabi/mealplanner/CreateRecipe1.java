@@ -21,6 +21,7 @@ public class CreateRecipe1 extends Activity {
         EditText ed=(EditText)findViewById(R.id.ingredients);
         ed.setText("Ingredients:-"+columns.replaceAll(",","\n"));
         ActionBar actionBar = getActionBar();
+        actionBar.setTitle("Save a recipe");
 
     }
     public void next(View view){

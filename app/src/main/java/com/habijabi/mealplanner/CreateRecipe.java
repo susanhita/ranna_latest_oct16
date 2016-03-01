@@ -65,6 +65,8 @@ public class CreateRecipe extends Activity {
         ingredients=intent.getStringExtra("ingredients");
 
         ActionBar actionBar = getActionBar();
+        actionBar.setTitle("Save a recipe");
+
     }
 
 
