@@ -66,6 +66,10 @@ public class CreateRecipe extends Activity {
 
         ActionBar actionBar = getActionBar();
         actionBar.setTitle("Save a recipe");
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setHomeButtonEnabled(false);
+
+
 
     }
 

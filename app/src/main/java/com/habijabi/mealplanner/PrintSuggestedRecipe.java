@@ -35,6 +35,8 @@ public class PrintSuggestedRecipe extends ListActivity {
         setContentView(R.layout.activity_print_suggested_recipe);
         ActionBar actionBar=getActionBar();
         actionBar.setTitle("Possible recipes");
+        actionBar.setDisplayShowHomeEnabled(true);
+
 
         new MatchRecipeClass().execute(recipes_matched);
     }

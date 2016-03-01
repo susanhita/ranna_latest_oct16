@@ -20,6 +20,8 @@ public class ViewGroceryList extends Activity {
         setContentView(R.layout.activity_view_grocery_list);
         ActionBar actionBar=getActionBar();
         actionBar.setTitle("Grocery List");
+        actionBar.setDisplayShowHomeEnabled(true);
+
         new ViewListDB().execute();
 
     }

@@ -34,10 +34,7 @@
             android:name=".CreateRecipe"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_create_recipe"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT"
-                android:value=".MainActivity" />
+            >
         </activity>
         <activity
             android:name=".ViewRecipe"
@@ -122,7 +119,7 @@
             android:name=".DeleteActivity"
             android:theme="@android:style/Theme.Holo.Dialog" >
         </activity>
-        <activity android:name=".CreateRecipe1" >
+        <activity android:name=".CreateRecipe1">
         </activity>
     </application>
 

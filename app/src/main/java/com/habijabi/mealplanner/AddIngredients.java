@@ -26,6 +26,7 @@ public class AddIngredients extends Activity {
         setContentView(R.layout.activity_add_ingredients);
         ActionBar actionBar=getActionBar();
         actionBar.setTitle("Add new ingredients");
+        actionBar.setDisplayShowHomeEnabled(true);
 
 
     }

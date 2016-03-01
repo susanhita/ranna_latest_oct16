@@ -32,6 +32,7 @@ public class ViewRecipe extends ListActivity {
         super.onCreate(savedInstanceState);
         ActionBar actionBar=getActionBar();
         actionBar.setTitle("List of recipes");
+        actionBar.setDisplayShowHomeEnabled(true);
         ListView listDrinks = getListView();
 
 

@@ -26,6 +26,8 @@ public class SelIngredients extends Activity {
         super.onCreate(savedInstanceState);
         ActionBar actionBar=getActionBar();
         actionBar.setTitle("Select Ingredients");
+        actionBar.setDisplayShowHomeEnabled(true);
+
         Tot_col="";
         Tot_val="";
         setContentView(R.layout.activity_sel_ingredients);
@@ -35,6 +37,7 @@ public class SelIngredients extends Activity {
         if (Grocery.grocery==true||MainActivity.add_grocery==true) {
             TextView choose = (TextView) findViewById(R.id.choose_text);
             choose.setText("Select items you need to buy:-");
+            actionBar.setDisplayShowHomeEnabled(true);
         }
         new displayCheckboxes().execute();
     }
@@ -118,6 +121,7 @@ public class SelIngredients extends Activity {
        if (flag==1) {
            if (Grocery.grocery==true||MainActivity.add_grocery==true) {
                Intent intent = new Intent(this, CreateGroceryList.class);
+               intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                intent.putExtra("list", list);
                startActivity(intent);
                Grocery.grocery=false;

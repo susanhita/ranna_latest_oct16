@@ -35,6 +35,12 @@ public class CreateGroceryList extends Activity {
         setContentView(R.layout.activity_create_grocery_list);
         ActionBar actionBar = getActionBar();
         actionBar.setTitle("Set time to buy groceries");
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setHomeButtonEnabled(false);
+
+
+
+
 
         datetext = (TextView) findViewById(R.id.datetext);
         timetext = (TextView) findViewById(R.id.timetext);

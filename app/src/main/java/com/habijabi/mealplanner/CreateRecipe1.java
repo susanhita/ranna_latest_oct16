@@ -19,9 +19,12 @@ public class CreateRecipe1 extends Activity {
         columns = intent.getStringExtra("Tot_col");
         values = intent.getStringExtra("Tot_val");
         EditText ed=(EditText)findViewById(R.id.ingredients);
-        ed.setText("Ingredients:-"+columns.replaceAll(",","\n"));
+        ed.setText("Ingredients:-" + columns.replaceAll(",", "\n"));
         ActionBar actionBar = getActionBar();
         actionBar.setTitle("Save a recipe");
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setHomeButtonEnabled(false);
+
 
     }
     public void next(View view){
@@ -37,8 +40,9 @@ public class CreateRecipe1 extends Activity {
         Intent intent =new Intent(this,CreateRecipe.class);
         intent.putExtra("Tot_col", columns);
         intent.putExtra("Tot_val", values);
-        intent.putExtra("recipe_name",recipe_name);
+        intent.putExtra("recipe_name", recipe_name);
         intent.putExtra("ingredients",ingredients);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 }

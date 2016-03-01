@@ -27,13 +27,14 @@ public class Grocery extends Activity {
         setContentView(R.layout.activity_grocery);
         ActionBar actionBar=getActionBar();
         actionBar.setTitle("Grocery List");
+        actionBar.setDisplayShowHomeEnabled(true);
+
     }
 
 
 
     public void sel_ingredients(View view){
         Intent intent=new Intent(this,SelIngredients.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         grocery=true;
         startActivity(intent);
         finish();

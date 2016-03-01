@@ -25,6 +25,7 @@ public class RecipeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
         ActionBar actionBar=getActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
         //get the drink from inntent
         Intent intent = getIntent();
         int drinkNo = (Integer) getIntent().getExtras().get(EXTRA_RECIPENO);
@@ -68,6 +69,8 @@ public class RecipeActivity extends Activity {
             //render
             ActionBar actionBar=getActionBar();
             actionBar.setTitle(nametext);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+
             TextView name = (TextView) findViewById(R.id.name);
             name.setText(nametext+"\n");
 
