@@ -25,7 +25,13 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 + "NAME TEXT, "
                 + "DESCRIPTION TEXT,"
                 + "IMAGE_RESOURCE_ID TEXT,"
-                + "GROCERY_LIST TEXT" +
+                + "GROCERY_LIST TEXT,"
+                + "Sugar TEXT,"
+                + "Eggs TEXT,"
+                + "Flour TEXT,"
+                + "Unsalted_Butter TEXT,"
+                + "Baking_powder TEXT,"
+                + "Milk TEXT" +
                 ");");
 
 //The grocery_list column will only be used in the pancake row.
@@ -36,7 +42,7 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
                 "2 eggs \n  1 cup flour \n 1/2 cup sugar \n 1 tbps butter \n 1/2 teaspoon baking powder \n 1/2 cup milk\n\n"+
                 "    Combine flour, sugar, baking powder, baking soda in a large mixing bowl. Whisk egg and butter into milk. Pour the flour mixture into the wet ingredients and whisk until lumps are gone." +
                 "    Heat a large skillet over medium heat, and coat with cooking spray. Pour 1/4 cupfuls of batter onto the skillet, and cook until bubbles appear on the surface. Flip with a spatula, and cook until browned on the other side.\n";
-        insertDrink(db, "pancake",recipe_description,path1 );
+        insertDrink(db, "pancake",recipe_description,path1);
 
 
     }
@@ -46,6 +52,13 @@ public class RecipeDatabase  extends SQLiteOpenHelper {
         drinkValues.put("DESCRIPTION", description);
         drinkValues.put("IMAGE_RESOURCE_ID", image.toString());
         drinkValues.put("GROCERY_LIST","No Grocery List saved.");
+        drinkValues.put("Sugar","YES");
+        drinkValues.put("Eggs","YES");
+        drinkValues.put("Flour","YES");
+        drinkValues.put("Unsalted_Butter","YES");
+        drinkValues.put("Baking_powder","YES");
+        drinkValues.put("Milk","YES");
+
         db.insert("RECIPE", null, drinkValues);
     }
 

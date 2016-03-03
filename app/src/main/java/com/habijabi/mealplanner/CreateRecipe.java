@@ -121,7 +121,6 @@ public class CreateRecipe extends Activity {
         });
         builder.show();
         Button but=(Button)findViewById(R.id.recipepic);
-        but.setClickable(false);
 
     }
 

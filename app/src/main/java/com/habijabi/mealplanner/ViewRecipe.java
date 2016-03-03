@@ -68,6 +68,7 @@ public class ViewRecipe extends ListActivity {
             }
             else {
                 Intent intent = new Intent(ViewRecipe.this, DeleteActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra(DeleteActivity.DELETE_RECIPENO, (int) id);
                 startActivity(intent);
                 finish();
