@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Remind yourself to buy Grocery"
+        android:text="@string/remind_you"
         android:id="@+id/textView4" />
 
 
@@ -21,7 +21,7 @@
         android:layout_width="118dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:text="Create a grocery list"
+        android:text="@string/create"
         android:background="@drawable/buttonshape"
         android:onClick="sel_ingredients"
         android:id="@+id/select_ingredients"
@@ -32,7 +32,7 @@
     <Button
         android:layout_width="118dp"
         android:layout_height="wrap_content"
-        android:text="View your grocery list"
+        android:text="@string/view"
         android:background="@drawable/buttonshape"
         android:onClick="view_list"
         android:id="@+id/view_list"
@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="*Note creating new list will remove the existing list"
+        android:text="@string/note"
         android:id="@+id/textView"
         android:layout_marginTop="46dp"
         android:layout_below="@+id/select_ingredients"

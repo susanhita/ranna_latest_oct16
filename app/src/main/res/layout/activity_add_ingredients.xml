@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:layout_gravity="center"
-        android:hint="Add more ingredients"
+        android:hint="@string/add_more"
         android:padding="10dp" />
 
 
@@ -26,7 +26,7 @@
         android:id="@+id/done"
         android:layout_gravity="center"
         android:background="@drawable/buttonshape"
-        android:text="Add"
+        android:text="@string/add"
         android:onClick="add_more_done"
         android:padding="5dp"
         />
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_vertical"
-            android:text="You added the following ingredients:-"
+            android:text="@string/you_added"
             android:id="@+id/textView3"
             />
 

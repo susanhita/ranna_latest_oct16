@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Grocery List"
+        android:text="@string/grocery"
         android:id="@+id/textViewlistv"
         android:layout_marginBottom="20dp"
         android:layout_alignParentTop="true"
@@ -34,7 +34,7 @@
         android:id="@+id/groc_listv"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:text="No list saved. " />
+        android:text="@string/no_list" />
 
 </ScrollView>
 

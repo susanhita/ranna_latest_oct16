@@ -15,6 +15,6 @@
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:layout_gravity="center"
-        android:text="There are no recipes available with the selected ingredients."/>
+        android:text="@string/noting"/>
 
 </LinearLayout>

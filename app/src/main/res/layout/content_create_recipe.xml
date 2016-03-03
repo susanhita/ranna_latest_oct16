@@ -32,7 +32,7 @@
             android:background="@drawable/buttonshape"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="Paste"
+            android:text="@string/paste"
             android:id="@+id/paste"
             android:onClick="paste"
             android:layout_gravity="right" />
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:inputType="textMultiLine"
-            android:hint="Type or paste the description here"
+            android:hint="@string/type"
             android:id="@+id/createRecipe"
             android:scrollbars="vertical"
             android:gravity="left"
@@ -52,7 +52,7 @@
             android:background="@drawable/buttonshape"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Add photo"
+            android:text="@string/add_pic"
             android:id="@+id/recipepic"
             android:onClick="recipe_pic" />
 
@@ -62,7 +62,7 @@
             android:background="@drawable/buttonshape"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save the recipe"
+            android:text="@string/save"
             android:id="@+id/button"
             android:onClick="save"/>
 

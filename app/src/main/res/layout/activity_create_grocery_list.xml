@@ -22,7 +22,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Remind me!"
+        android:text="@string/remind"
         android:layout_gravity="center"
 
         android:background="@drawable/buttonshape"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Grocery List"
+        android:text="@string/grocery"
         android:id="@+id/textViewlist"
         android:layout_gravity="center"
 
@@ -72,7 +72,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="confirm notification time"
+        android:text="@string/confirm"
 
         android:background="@drawable/buttonshape"
         android:visibility="invisible"

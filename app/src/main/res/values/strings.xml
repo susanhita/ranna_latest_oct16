@@ -9,4 +9,39 @@
         <item>payasam</item>
     </string-array>
 
+
+
+    <string name="add_more">Add more ingredients!</string>
+    <string name="add">add</string>
+    <string name="you_added">You've added the following ingredients:-</string>
+    <string name="remind">Remind me!</string>
+    <string name="grocery">grocery list</string>
+    <string name="confirm">Confirm notification time</string>
+    <string name="rec_name">Recipe Name</string>
+    <string name="edit">You can the edit quantity of ingredients below:</string>
+    <string name="next">next</string>
+    <string name="delete">Are you sure you want to delete this?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="remind_you">Remind yourself to buy Grocery</string>
+    <string name="create">Create a grocery list</string>
+    <string name="view">View your grocery list</string>
+    <string name="note">*Note creating new list will remove the existing list:-</string>
+    <string name="no_list">No list saved.</string>
+    <string name="nothing">There are no recipes available with the selected ingredients.</string>
+    <string name="all_check">All ingredients checked!</string>
+    <string name="add_new">Add new ingredients</string>
+    <string name="choose">Choose ingredients for this recipe:-</string>
+    <string name="select_avail">Select the ingredients available with you.</string>
+    <string name="possible">Possible Recipes</string>
+    <string name="paste">paste</string>
+    <string name="type">Type or paste the description here</string>
+    <string name="add_pic">Add photo</string>
+    <string name="save">Save the recipe</string>
+    <string name="create_rec">Save a Recipe</string>
+    <string name="view_rec">View your RecipeBook</string>
+    <string name="random">What shall I make today</string>
+    <string name="delete_rec">Delete a Recipe</string>
+    <string name="suggest">Suggest Menu with stuff available.</string>
+
 </resources>

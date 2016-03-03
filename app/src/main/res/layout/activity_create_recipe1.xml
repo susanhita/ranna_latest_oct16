@@ -23,7 +23,7 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/recipe_name"
-        android:hint="Recipe Name"/>
+        android:hint="@string/rec_name"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You can the edit quantity of ingredients below:-"
+        android:text="@string/edit"
         android:id="@+id/textView5" />
 
     <EditText
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonshape"
-        android:text="Next"
+        android:text="@string/next"
         android:id="@+id/button4"
         android:onClick="next"
         android:layout_gravity="center_horizontal" />
