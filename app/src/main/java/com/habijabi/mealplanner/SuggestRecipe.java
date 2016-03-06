@@ -7,9 +7,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,6 +28,9 @@ public class SuggestRecipe extends Activity {
         ActionBar actionBar = getActionBar();
         actionBar.setTitle("Select ingredients available");
         actionBar.setDisplayShowHomeEnabled(true);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/newfont.TTF");
+        Button possible=(Button)findViewById(R.id.possible);
+        possible.setTypeface(custom_font);
         new displayCheckboxes1().execute();
     }
 

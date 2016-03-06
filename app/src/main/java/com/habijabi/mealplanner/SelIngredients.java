@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -40,6 +41,13 @@ public class SelIngredients extends Activity {
             actionBar.setDisplayShowHomeEnabled(true);
         }
         new displayCheckboxes().execute();
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/newfont.TTF");
+        Button add_ingredient =(Button)findViewById(R.id.add_ingredient);
+        Button insert_to_db =(Button)findViewById(R.id.insert_to_db);
+
+        add_ingredient.setTypeface(custom_font);
+        insert_to_db.setTypeface(custom_font);
     }
 
     public void onDestroy() {

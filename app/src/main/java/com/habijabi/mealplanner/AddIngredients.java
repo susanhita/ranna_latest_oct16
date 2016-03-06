@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +28,13 @@ public class AddIngredients extends Activity {
         ActionBar actionBar=getActionBar();
         actionBar.setTitle("Add new ingredients");
         actionBar.setDisplayShowHomeEnabled(true);
-
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/newfont.TTF");
+        Button done=(Button)findViewById(R.id.done);
+        Button button2=(Button)findViewById(R.id.button2);
+        Button button3=(Button)findViewById(R.id.button3);
+        done.setTypeface(custom_font);
+        button2.setTypeface(custom_font);
+        button3.setTypeface(custom_font);
 
     }
 

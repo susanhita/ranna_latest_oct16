@@ -14,6 +14,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
@@ -68,6 +69,15 @@ public class CreateRecipe extends Activity {
         actionBar.setTitle("Save a recipe");
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setHomeButtonEnabled(false);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/newfont.TTF");
+        Button pic=(Button)findViewById(R.id.recipepic);
+        Button save=(Button)findViewById(R.id.save);
+        Button paste=(Button)findViewById(R.id.paste);
+        pic.setTypeface(custom_font);
+        save.setTypeface(custom_font);
+        paste.setTypeface(custom_font);
+
+
 
 
 
@@ -120,7 +130,6 @@ public class CreateRecipe extends Activity {
             }
         });
         builder.show();
-        Button but=(Button)findViewById(R.id.recipepic);
 
     }
 

@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.app.DatePickerDialog;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -37,7 +38,11 @@ public class CreateGroceryList extends Activity {
         actionBar.setTitle("Set time to buy groceries");
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setHomeButtonEnabled(false);
-
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/newfont.TTF");
+        Button but1=(Button)findViewById(R.id.setdate);
+        but1.setTypeface(custom_font);
+        Button button=(Button)findViewById(R.id.confirm);
+        button.setTypeface(custom_font);
 
 
 

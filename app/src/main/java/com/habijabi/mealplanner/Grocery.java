@@ -9,11 +9,13 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.SystemClock;
 import android.provider.CalendarContract;
 import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.Calendar;
@@ -28,6 +30,13 @@ public class Grocery extends Activity {
         ActionBar actionBar=getActionBar();
         actionBar.setTitle("Grocery List");
         actionBar.setDisplayShowHomeEnabled(true);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/newfont.TTF");
+        Button select_ingredients=(Button)findViewById(R.id.select_ingredients);
+        Button view_list=(Button)findViewById(R.id.view_list);
+
+        select_ingredients.setTypeface(custom_font);
+        view_list.setTypeface(custom_font);
+
 
     }
 
