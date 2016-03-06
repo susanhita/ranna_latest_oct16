@@ -42,7 +42,7 @@ android:orientation="vertical"
 
     </ScrollView>
     <View
-        android:layout_width="174dp"
+        android:layout_width="200dp"
         android:layout_height="3dp"
         android:layout_gravity="center"
         android:background="#8f8485"/>
@@ -54,9 +54,12 @@ android:orientation="vertical"
         android:padding="10dp"
         android:id="@+id/add_ingredient"
         android:onClick="addIngredient"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="@color/buttoncolor"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textSize="12dp"
+        android:typeface="normal" />
 
     <View
         android:layout_width="wrap_content"

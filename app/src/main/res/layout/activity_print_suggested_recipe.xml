@@ -15,6 +15,6 @@
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:layout_gravity="center"
-        android:text="@string/noting"/>
+        android:text="@string/nothing"/>
 
 </LinearLayout>
